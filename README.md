@@ -18,7 +18,7 @@ Two complementary resources are must-to-study resources for me. I studied them r
 
 
 # Package management
-There are several packages managers such as pip, homebrew, apt-get, CRAN, CPAN and Bioconductor. [Conda is a combination of other package managers.](https://bioconda.github.io/tutorials/gcb2020.html#what-exactly-is-conda) [Bioconda](https://bioconda.github.io/index.html) is a channel for bioinformatics tools found in conda.   
+There are several packages managers such as pip, homebrew, apt-get, CRAN, CPAN and Bioconductor. [Conda](https://bioconda.github.io/tutorials/gcb2020.html#what-exactly-is-conda) is a combination of other package managers. [Bioconda](https://bioconda.github.io/index.html) is a channel for bioinformatics tools found in conda.   
 #### [Biopython Tutorial and Cookbook](http://biopython.org/DIST/docs/tutorial/Tutorial.html)
 
 # Reproducible workflow

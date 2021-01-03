@@ -2,12 +2,19 @@
 Bioinformatics resources and tools...
 
 # Programing languages
-#### [UNIX]()
-#### [Python]()
-#### [R]()
-#### [C++]()
+#### UNIX
+[]()
+[awk](https://klashxx.github.io/awk-power-for-your-cmd), power for your command line.
+[AWK GTF!](http://reasoniamhere.com/2013/09/16/awk-gtf-how-to-analyze-a-transcriptome-like-a-pro-part-1/) How to Analyze a Transcriptome Like a Pro 
 
-# 
+#### [Python]() 
+I suggest to use [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.html) instead of PyCharm on Macbook.  
+
+#### R
+]()
+
+#### C++
+[]()
 
 # Resources
 Two complementary resources are must-to-study resources for me. I studied them repeatedly to grasp the concept entirely. I strongly suggest them to anyone interested in learning computational biology. 
@@ -18,7 +25,7 @@ Two complementary resources are must-to-study resources for me. I studied them r
 
 
 # Package management
-There are several packages managers such as pip, homebrew, apt-get, CRAN, CPAN and Bioconductor. [Conda](https://bioconda.github.io/tutorials/gcb2020.html#what-exactly-is-conda) is a combination of other package managers. [Bioconda](https://bioconda.github.io/index.html) is a channel for bioinformatics tools found in conda.   
+There are several packages managers such as pip, homebrew, apt-get, CRAN, CPAN and Bioconductor. [Conda](https://bioconda.github.io/tutorials/gcb2020.html#what-exactly-is-conda) is a combination of other package managers. [Bioconda](https://bioconda.github.io/index.html) is a channel for bioinformatics tools found in conda. [Biopython](https://biopython.org/wiki/Packages) can be installed via conda.        
 #### [Biopython Tutorial and Cookbook](http://biopython.org/DIST/docs/tutorial/Tutorial.html)
 
 # Reproducible workflow

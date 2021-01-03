@@ -2,18 +2,19 @@
 Bioinformatics resources and tools...
 
 # Programing languages
-#### UNIX
+## UNIX
 []()
 [awk](https://klashxx.github.io/awk-power-for-your-cmd), power for your command line.
 [AWK GTF!](http://reasoniamhere.com/2013/09/16/awk-gtf-how-to-analyze-a-transcriptome-like-a-pro-part-1/) How to Analyze a Transcriptome Like a Pro 
 
-#### [Python]() 
+## Python
+[]() 
 I suggest to use [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.html) instead of PyCharm on Macbook.  
 
-#### R
-]()
+## R
+[]()
 
-#### C++
+## C++
 []()
 
 # Resources

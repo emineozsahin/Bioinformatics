@@ -2,10 +2,10 @@
 Bioinformatics resources and tools...
 
 # Programing languages
-[UNIX]()
-[Python]()
-[R]()
-[C++]()
+#### [UNIX]()
+#### [Python]()
+#### [R]()
+#### [C++]()
 
 # 
 
@@ -22,7 +22,7 @@ There are several packages managers such as pip, homebrew, apt-get, CRAN, CPAN a
 #### [Biopython Tutorial and Cookbook](http://biopython.org/DIST/docs/tutorial/Tutorial.html)
 
 # Reproducible workflow
-[R Markdown]() and [Snakemake()]
+[R Markdown]() and [Snakemake]()
 
 # HPC
 

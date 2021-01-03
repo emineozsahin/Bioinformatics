@@ -16,7 +16,7 @@ Two complementary resources are must-to-study resources for me. I studied them r
 
 ### Python
 #### []() 
-I suggest to use [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.html) instead of PyCharm on Macbook.  
+I suggest to use [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.html) instead of PyCharm.  
 
 ### R
 []()

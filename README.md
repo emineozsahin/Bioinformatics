@@ -1,6 +1,11 @@
 # Bioinformatics
 Bioinformatics resources and tools...
 
+# Resources
+Two complementary resources are must-to-study resources for me. I studied them repeatedly to grasp the concept entirely. I strongly suggest them to anyone interested in learning computational biology. 
+#### [PH525x series - Biomedical Data Science](http://genomicsclass.github.io/book/)
+#### [HarvardX Biomedical Data Science Open Online Training](http://rafalab.github.io/pages/harvardx.html)
+
 # Programing languages
 ## UNIX
 [Basics]()
@@ -19,12 +24,7 @@ I suggest to use [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.
 ## C++
 []()
 
-# Resources
-Two complementary resources are must-to-study resources for me. I studied them repeatedly to grasp the concept entirely. I strongly suggest them to anyone interested in learning computational biology. 
-#### [PH525x series - Biomedical Data Science](http://genomicsclass.github.io/book/)
-#### [HarvardX Biomedical Data Science Open Online Training](http://rafalab.github.io/pages/harvardx.html)  
-
-# Environment
+# Virtual Environment
 
 
 # Package management

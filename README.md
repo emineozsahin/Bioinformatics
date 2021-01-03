@@ -7,24 +7,24 @@ Two complementary resources are must-to-study resources for me. I studied them r
 #### [HarvardX Biomedical Data Science Open Online Training](http://rafalab.github.io/pages/harvardx.html)
 
 # Programing languages
-## UNIX
-[Basics]()
-[If statement and loops]()
-[Tips and tricks]()
+### UNIX
+#### [Basics]()
+#### [If statement and loops]()
+#### [Tips and tricks]()
 #### [AWK](https://klashxx.github.io/awk-power-for-your-cmd), power for your command line.
 #### [AWK GTF!](http://reasoniamhere.com/2013/09/16/awk-gtf-how-to-analyze-a-transcriptome-like-a-pro-part-1/), How to Analyze a Transcriptome Like a Pro... 
 
-## Python
-[]() 
+### Python
+#### []() 
 I suggest to use [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.html) instead of PyCharm on Macbook.  
 
-## R
+### R
 []()
 
-## C++
+### C++
 []()
 
-# Virtual Environment
+# Virtual Environments
 
 
 # Package management
@@ -32,10 +32,11 @@ There are several package managers such as pip, homebrew, apt-get, CRAN, CPAN an
 #### [Biopython Tutorial and Cookbook](http://biopython.org/DIST/docs/tutorial/Tutorial.html)
 
 # Reproducible workflow
-[R Markdown]() and [Snakemake]()
+[R Markdown](https://rmarkdown.rstudio.com) and [Snakemake](https://snakemake.readthedocs.io/en/stable/)
 
-# HPC
+# High Performance Computing
+### AWS
+### 
 
-# AWS
-
-# 
+# Machine Learning
+#### [TensorFlow](https://www.tensorflow.org)

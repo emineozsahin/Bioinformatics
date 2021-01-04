@@ -1,0 +1,10 @@
+name: test
+channels:
+  - bioconda
+  - defaults
+  - conda-forge
+dependencies:
+  - bwa=0.7.17
+  - samtools=1.9
+  - snakemake==5.28.0
+prefix: /Users/emineozsahin/miniconda/envs

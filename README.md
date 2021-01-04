@@ -42,6 +42,7 @@ bioconda has a huge collection of bioinformatics [tools](https://anaconda.org/bi
 Start with a folder to test the snakemake and download the tutorial files.   
 
 ```
+# test
 mkdir test
 cd test
 wget https://github.com/snakemake/snakemake-tutorial-data/archive/v5.4.5.tar.gz
@@ -50,6 +51,12 @@ tar -xf v5.4.5.tar.gz --strip 1 "*/data"
 
 Miniconda is much smaller than Anaconda, and it is enough to install bioconda packages. Therefore, I suggest using miniconda rather than Anaconda. 
 Install [miniconda](https://docs.conda.io/en/latest/miniconda.html#macosx-installers)
+
+miniconda can also be installed on terminal
+```
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -o Miniconda3-latest-MacOSX-x86_64.sh
+sh Miniconda3-latest-MacOSX-x86_64.sh
+```
 
 I prefer to create a virtual environment rather than using my root environment. [Why you need python environments](https://www.freecodecamp.org/news/why-you-need-python-environments-and-how-to-manage-them-with-conda-85f155f4353c/) To do this I installed [mamba](https://mamba-framework.readthedocs.io/en/latest/what_mamba_is.html) as it is works faster than conda. Compare [conda and mamba](https://bioconda.github.io/tutorials/gcb2020.html#introducing-mamba)
 

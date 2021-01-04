@@ -8,18 +8,15 @@ Two complementary resources are must-to-study resources for me. I strongly sugge
 
 # Programing languages
 ### [UNIX](https://tldp.org/LDP/Bash-Beginners-Guide/html/index.html)
-#### [AWK](https://klashxx.github.io/awk-power-for-your-cmd), power for your command line.
-#### [AWK GTF!](http://reasoniamhere.com/2013/09/16/awk-gtf-how-to-analyze-a-transcriptome-like-a-pro-part-1/), How to Analyze a Transcriptome Like a Pro... 
+[AWK](https://klashxx.github.io/awk-power-for-your-cmd), power for your command line.
+[AWK GTF!](http://reasoniamhere.com/2013/09/16/awk-gtf-how-to-analyze-a-transcriptome-like-a-pro-part-1/), How to Analyze a Transcriptome Like a Pro... 
 
-### Python
-#### []() 
+### [Python]() 
 I suggest to use [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.html) instead of PyCharm.  
 
-### R
-[]()
+### [R]()
 
-### C++
-[]()
+### [C++]()
 
 # Virtual Environments
 
@@ -28,12 +25,12 @@ I suggest to use [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.
 There are several package managers such as pip, homebrew, apt-get, CRAN, CPAN and Bioconductor. [Conda](https://bioconda.github.io/tutorials/gcb2020.html#what-exactly-is-conda) is a combination of other package managers. [Bioconda](https://bioconda.github.io/index.html) is a channel for bioinformatics tools found in conda. [Biopython](https://biopython.org/wiki/Packages) can be installed via conda.        
 #### [Biopython Tutorial and Cookbook](http://biopython.org/DIST/docs/tutorial/Tutorial.html)
 
-bioconda has a huge collection of bioinformatics [tools](https://anaconda.org/bioconda/repo?sort=_name&sort_order=asc&page=15). 
+Bioconda compose of a collection of bioinformatics [tools](https://anaconda.org/bioconda/repo?sort=_name&sort_order=asc&page=15) which can be installed easily.  
 
 # Reproducible workflow
 [R Markdown](https://rmarkdown.rstudio.com) and [Snakemake](https://snakemake.readthedocs.io/en/stable/)
 
-### Snakemake
+## Snakemake
 #### I summurized a snakemake workflow which can be found [Snakemake](https://snakemake.readthedocs.io/en/stable/) website in detail. 
 
 Start with a folder to test the snakemake and download the tutorial files.   
@@ -92,7 +89,7 @@ conda remove --name test --all
 ```
 
 # High Performance Computing
-AWS 
+[AWS](https://aws.amazon.com) and Compute Canada(https://docs.computecanada.ca/wiki/Compute_Canada_Documentation)
 
 # Machine Learning
 [TensorFlow](https://www.tensorflow.org)

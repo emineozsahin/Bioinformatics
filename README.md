@@ -97,4 +97,4 @@ conda remove --name test --all
 #### [TensorFlow](https://www.tensorflow.org)
 
 #
-[R_Markdown_Cheatsheet](/https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code)
+[R_Markdown_Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code)

@@ -25,13 +25,14 @@ I suggest to use [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.
 []()
 
 # Virtual Environments
+
 [Why you need python environments](https://www.freecodecamp.org/news/why-you-need-python-environments-and-how-to-manage-them-with-conda-85f155f4353c/)
 
 # Package management
 There are several package managers such as pip, homebrew, apt-get, CRAN, CPAN and Bioconductor. [Conda](https://bioconda.github.io/tutorials/gcb2020.html#what-exactly-is-conda) is a combination of other package managers. [Bioconda](https://bioconda.github.io/index.html) is a channel for bioinformatics tools found in conda. [Biopython](https://biopython.org/wiki/Packages) can be installed via conda.        
 #### [Biopython Tutorial and Cookbook](http://biopython.org/DIST/docs/tutorial/Tutorial.html)
 
-bioconda has a huge collection of bioinformatics tools such as bwa, samtools, 
+bioconda has a huge collection of bioinformatics [tools](https://anaconda.org/bioconda/repo?sort=_name&sort_order=asc&page=15). 
 
 # Reproducible workflow
 [R Markdown](https://rmarkdown.rstudio.com) and [Snakemake](https://snakemake.readthedocs.io/en/stable/)
@@ -40,7 +41,7 @@ bioconda has a huge collection of bioinformatics tools such as bwa, samtools,
 #### A detailed snakemake workflow
 Samples are from [Snakemake](https://snakemake.readthedocs.io/en/stable/) tutorial. 
 
-Start with a folder to test the snakemake and download the files.   
+Start with a folder to test the snakemake and download the tutorial files.   
 
 ```
 mkdir test
@@ -49,22 +50,24 @@ wget https://github.com/snakemake/snakemake-tutorial-data/archive/v5.4.5.tar.gz
 tar -xf v5.4.5.tar.gz --strip 1 "*/data"
 ```
 
-miniconda is much smaller then conda and for snakemake and bioconda, miniconda is enough. Therefore there is no need to install anaconda. 
+Miniconda is much smaller then anaconda and it is enough for bioconda. Therefore, I suggest to use miniconda to install software tools found in bioconda. 
 ```
 
 ```
 
-I prefer to create an environment rather than using my root environment. To do this I installed [mamba](https://mamba-framework.readthedocs.io/en/latest/what_mamba_is.html) as it is works faster than conda.
+I prefer to create an environment rather than using my root environment. To do this I installed [mamba](https://mamba-framework.readthedocs.io/en/latest/what_mamba_is.html) as it is works faster than conda. Compare [conda and mamba](https://bioconda.github.io/tutorials/gcb2020.html)
 
 ```
 conda install mamba -c conda-forge
 ```
 
-
-Create a virtual environment using a [config file]() to create an environment snakemake, bwa, samtools installed in it via miniconda.   
-```
+To create a virtual environment, I used a [config file]() which says the mamba what packages to be installed to the environment.    
 
 ```
+mamba env create -f envs/mapping.yaml 
+```
+
+
 
 
 # High Performance Computing

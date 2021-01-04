@@ -2,12 +2,12 @@
 Bioinformatics resources and tools...
 
 # Resources
-Two complementary resources are must-to-study resources for me. I studied them repeatedly to grasp the concept entirely. I strongly suggest them to anyone interested in learning computational biology. 
+Two complementary resources are must-to-study resources for me. I strongly suggest them to anyone interested in learning computational biology. 
 #### [PH525x series - Biomedical Data Science](http://genomicsclass.github.io/book/)
 #### [HarvardX Biomedical Data Science Open Online Training](http://rafalab.github.io/pages/harvardx.html)
 
 # Programing languages
-### UNIX
+### [UNIX](https://tldp.org/LDP/Bash-Beginners-Guide/html/index.html)
 #### [Basics]()
 #### [If statement and loops]()
 #### [Tips and tricks]()

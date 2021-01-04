@@ -51,7 +51,7 @@ tar -xf v5.4.5.tar.gz --strip 1 "*/data"
 Miniconda is much smaller than Anaconda, and it is enough to install bioconda packages. Therefore, I suggest using miniconda rather than Anaconda. 
 Install [miniconda](https://docs.conda.io/en/latest/miniconda.html#macosx-installers)
 
-I prefer to create an environment rather than using my root environment. [Why you need python environments](https://www.freecodecamp.org/news/why-you-need-python-environments-and-how-to-manage-them-with-conda-85f155f4353c/) To do this I installed [mamba](https://mamba-framework.readthedocs.io/en/latest/what_mamba_is.html) as it is works faster than conda. Compare [conda and mamba](https://bioconda.github.io/tutorials/gcb2020.html#introducing-mamba)
+I prefer to create a virtual environment rather than using my root environment. [Why you need python environments](https://www.freecodecamp.org/news/why-you-need-python-environments-and-how-to-manage-them-with-conda-85f155f4353c/) To do this I installed [mamba](https://mamba-framework.readthedocs.io/en/latest/what_mamba_is.html) as it is works faster than conda. Compare [conda and mamba](https://bioconda.github.io/tutorials/gcb2020.html#introducing-mamba)
 
 ```
 conda install mamba -c conda-forge
@@ -69,32 +69,29 @@ conda activate test
 ```
 you can test your environment if snakemake and bwa are installed by typing `which snakemake` and `which bwa`
 
-run the following code in the test folder which has the [__snakemake__](https://github.com/emineozsahin/Bioinformatics/blob/main/test/Snakefile) file to check if the codes works
-```
-snakemake --use-conda -n mapped/A.bam
-```
+run the following code in the test folder which has the [__snakemake__](https://github.com/emineozsahin/Bioinformatics/blob/main/test/Snakefile) file 
 
-use following code to run the software
 ```
 snakemake --use-conda --cores 2  mapped_reads/A.bam
 ```
+This will create a mapped_reads folder with a bam file 
+
 Deactivate the environment
 
 ```
 conda deactivate
 ```
 
-remove the _test_ environment
+remove the _test_ environment if it is not needed anymore
 ```
 conda remove --name test --all
 ```
 
 # High Performance Computing
-### AWS
-### 
+## AWS
+## 
 
 # Machine Learning
-#### [TensorFlow](https://www.tensorflow.org)
+## [TensorFlow](https://www.tensorflow.org)
 
-#
-[R_Markdown_Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+# [R_Markdown_Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)

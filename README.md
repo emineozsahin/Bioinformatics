@@ -50,7 +50,7 @@ wget https://github.com/snakemake/snakemake-tutorial-data/archive/v5.4.5.tar.gz
 tar -xf v5.4.5.tar.gz --strip 1 "*/data"
 ```
 
-Miniconda is much smaller then anaconda and it is enough for bioconda. Therefore, I suggest to use miniconda to install software tools found in bioconda. 
+Miniconda is much smaller than Anaconda, and it is enough to install bioconda packages. Therefore, I suggest using miniconda to install software tools found in bioconda.
 ```
 
 ```

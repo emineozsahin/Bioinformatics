@@ -63,7 +63,7 @@ To create a virtual environment, I used a [config file](https://github.com/emine
 mamba env create -f envs/mapping.yaml 
 ```
 
-In the config file the first line is to give a name to the environment which is *test* in this example. Therefore, activate the environment using the *test* name.
+In the config file the first line is to give a name to the environment which is *test* in this example. Therefore, activate the environment using the name *test*.
 ```
 conda activate test
 ```

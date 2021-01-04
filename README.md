@@ -46,7 +46,20 @@ mkdir test
 cd test
 wget https://github.com/snakemake/snakemake-tutorial-data/archive/v5.4.5.tar.gz
 tar -xf v5.4.5.tar.gz --strip 1 "*/data"
+nano snakefile
 ```
+write the following codes into the snakefile and save it. 
+
+rule bwa_map:
+    input:
+        "data/genome.fa",
+        "data/samples/A.fastq"
+    output:
+        "mapped_reads/A.bam"
+    shell:
+        "bwa mem {input} | samtools view -Sb - > {output}"
+
+
 
 Miniconda is much smaller than Anaconda, and it is enough to install bioconda packages. Therefore, I suggest using miniconda to install software tools found in bioconda. To install miniconda:
 ```
@@ -59,14 +72,39 @@ I prefer to create an environment rather than using my root environment. [Why yo
 conda install mamba -c conda-forge
 ```
 
-To create a virtual environment, I used a [config file](https://github.com/emineozsahin/Bioinformatics/blob/main/config/mapping.yaml) which says the mamba what packages to be installed to the environment.    
+To create a virtual environment, I used a [config file](https://github.com/emineozsahin/Bioinformatics/blob/main/config/mapping.yaml) which says the mamba what packages to be installed to the environment.   
 
 ```
 mamba env create -f envs/mapping.yaml 
 ```
 
+In the config file the first line is to give a name to the environment which is *test* in this example. Therefore, activate the environment using the *test* name.
+```
+conda activate test
+```
+you can test your environment if snakemake and bwa are installed by typing `which snakemake` and `which bwa`
 
 
+
+
+
+
+```
+snakemake --use-conda -n mapped/A.bam
+```
+
+
+```
+snakemake --use-conda --cores 1  mapped_reads/A.bam
+```
+
+```
+conda deactivate
+```
+
+```
+conda remove --name test --all
+```
 
 # High Performance Computing
 ### AWS
@@ -74,3 +112,6 @@ mamba env create -f envs/mapping.yaml
 
 # Machine Learning
 #### [TensorFlow](https://www.tensorflow.org)
+
+#
+(R_Markdown_Cheatsheet)[/https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code]

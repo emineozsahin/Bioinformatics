@@ -8,9 +8,6 @@ Two complementary resources are must-to-study resources for me. I strongly sugge
 
 # Programing languages
 ### [UNIX](https://tldp.org/LDP/Bash-Beginners-Guide/html/index.html)
-#### [Basics]()
-#### [If statement and loops]()
-#### [Tips and tricks]()
 #### [AWK](https://klashxx.github.io/awk-power-for-your-cmd), power for your command line.
 #### [AWK GTF!](http://reasoniamhere.com/2013/09/16/awk-gtf-how-to-analyze-a-transcriptome-like-a-pro-part-1/), How to Analyze a Transcriptome Like a Pro... 
 

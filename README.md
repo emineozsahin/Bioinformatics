@@ -89,7 +89,7 @@ conda remove --name test --all
 ```
 
 # High Performance Computing
-[AWS](https://aws.amazon.com) and Compute Canada(https://docs.computecanada.ca/wiki/Compute_Canada_Documentation)
+[AWS](https://aws.amazon.com) and [Compute Canada](https://docs.computecanada.ca/wiki/Compute_Canada_Documentation)
 
 # Machine Learning
 [TensorFlow](https://www.tensorflow.org)

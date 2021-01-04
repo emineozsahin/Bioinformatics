@@ -26,7 +26,6 @@ I suggest to use [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.
 
 # Virtual Environments
 
-[Why you need python environments](https://www.freecodecamp.org/news/why-you-need-python-environments-and-how-to-manage-them-with-conda-85f155f4353c/)
 
 # Package management
 There are several package managers such as pip, homebrew, apt-get, CRAN, CPAN and Bioconductor. [Conda](https://bioconda.github.io/tutorials/gcb2020.html#what-exactly-is-conda) is a combination of other package managers. [Bioconda](https://bioconda.github.io/index.html) is a channel for bioinformatics tools found in conda. [Biopython](https://biopython.org/wiki/Packages) can be installed via conda.        
@@ -38,8 +37,7 @@ bioconda has a huge collection of bioinformatics [tools](https://anaconda.org/bi
 [R Markdown](https://rmarkdown.rstudio.com) and [Snakemake](https://snakemake.readthedocs.io/en/stable/)
 
 ### Snakemake
-#### A detailed snakemake workflow
-Samples are from [Snakemake](https://snakemake.readthedocs.io/en/stable/) tutorial. 
+#### I summurized a snakemake workflow which can be found [Snakemake](https://snakemake.readthedocs.io/en/stable/) website in detail. 
 
 Start with a folder to test the snakemake and download the tutorial files.   
 
@@ -50,12 +48,12 @@ wget https://github.com/snakemake/snakemake-tutorial-data/archive/v5.4.5.tar.gz
 tar -xf v5.4.5.tar.gz --strip 1 "*/data"
 ```
 
-Miniconda is much smaller than Anaconda, and it is enough to install bioconda packages. Therefore, I suggest using miniconda to install software tools found in bioconda.
+Miniconda is much smaller than Anaconda, and it is enough to install bioconda packages. Therefore, I suggest using miniconda to install software tools found in bioconda. To install miniconda:
 ```
 
 ```
 
-I prefer to create an environment rather than using my root environment. To do this I installed [mamba](https://mamba-framework.readthedocs.io/en/latest/what_mamba_is.html) as it is works faster than conda. Compare [conda and mamba](https://bioconda.github.io/tutorials/gcb2020.html)
+I prefer to create an environment rather than using my root environment. [Why you need python environments](https://www.freecodecamp.org/news/why-you-need-python-environments-and-how-to-manage-them-with-conda-85f155f4353c/) To do this I installed [mamba](https://mamba-framework.readthedocs.io/en/latest/what_mamba_is.html) as it is works faster than conda. Compare [conda and mamba](https://bioconda.github.io/tutorials/gcb2020.html) at the section 
 
 ```
 conda install mamba -c conda-forge

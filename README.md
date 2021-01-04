@@ -69,7 +69,7 @@ conda activate test
 ```
 you can test your environment if snakemake and bwa are installed by typing `which snakemake` and `which bwa`
 
-run the following code in the test folder which has the [__snakemake__](https://github.com/emineozsahin/Bioinformatics/blob/main/test/Snakefile) file 
+run the following code in the test folder which has the [__Snakemake__](https://github.com/emineozsahin/Bioinformatics/blob/main/test/Snakefile) file 
 
 ```
 snakemake --use-conda --cores 2  mapped_reads/A.bam

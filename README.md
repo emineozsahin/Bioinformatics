@@ -53,7 +53,7 @@ Miniconda is much smaller than Anaconda, and it is enough to install bioconda pa
 
 ```
 
-I prefer to create an environment rather than using my root environment. [Why you need python environments](https://www.freecodecamp.org/news/why-you-need-python-environments-and-how-to-manage-them-with-conda-85f155f4353c/) To do this I installed [mamba](https://mamba-framework.readthedocs.io/en/latest/what_mamba_is.html) as it is works faster than conda. Compare [conda and mamba](https://bioconda.github.io/tutorials/gcb2020.html) at the section 
+I prefer to create an environment rather than using my root environment. [Why you need python environments](https://www.freecodecamp.org/news/why-you-need-python-environments-and-how-to-manage-them-with-conda-85f155f4353c/) To do this I installed [mamba](https://mamba-framework.readthedocs.io/en/latest/what_mamba_is.html) as it is works faster than conda. Compare [conda and mamba](https://bioconda.github.io/tutorials/gcb2020.html#introducing-mamba)
 
 ```
 conda install mamba -c conda-forge

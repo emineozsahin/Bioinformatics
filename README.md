@@ -48,10 +48,8 @@ wget https://github.com/snakemake/snakemake-tutorial-data/archive/v5.4.5.tar.gz
 tar -xf v5.4.5.tar.gz --strip 1 "*/data"
 ```
 
-Miniconda is much smaller than Anaconda, and it is enough to install bioconda packages. Therefore, I suggest using miniconda to install software tools found in bioconda. To install miniconda:
-```
-
-```
+Miniconda is much smaller than Anaconda, and it is enough to install bioconda packages. Therefore, I suggest using miniconda rather than Anaconda. 
+Install [miniconda](https://docs.conda.io/en/latest/miniconda.html#macosx-installers)
 
 I prefer to create an environment rather than using my root environment. [Why you need python environments](https://www.freecodecamp.org/news/why-you-need-python-environments-and-how-to-manage-them-with-conda-85f155f4353c/) To do this I installed [mamba](https://mamba-framework.readthedocs.io/en/latest/what_mamba_is.html) as it is works faster than conda. Compare [conda and mamba](https://bioconda.github.io/tutorials/gcb2020.html#introducing-mamba)
 

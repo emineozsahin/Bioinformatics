@@ -61,7 +61,7 @@ I prefer to create an environment rather than using my root environment. To do t
 conda install mamba -c conda-forge
 ```
 
-To create a virtual environment, I used a [config file]() which says the mamba what packages to be installed to the environment.    
+To create a virtual environment, I used a [config file](https://github.com/emineozsahin/Bioinformatics/blob/main/config/mapping.yaml) which says the mamba what packages to be installed to the environment.    
 
 ```
 mamba env create -f envs/mapping.yaml 

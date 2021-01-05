@@ -1,18 +1,18 @@
 # Bioinformatics
 Bioinformatics resources and tools...
 
-# Resources
-Two complementary resources are must-to-study resources for me. I strongly suggest them to anyone interested in learning computational biology. 
+# Resources and tutorials 
 #### [PH525x series - Biomedical Data Science](http://genomicsclass.github.io/book/)
 #### [HarvardX Biomedical Data Science Open Online Training](http://rafalab.github.io/pages/harvardx.html)
+#### [Next-Gen Sequence Analysis Workshop (2019)](https://angus.readthedocs.io/en/2019/toc.html#)
+
 
 # Programing languages
 ### [UNIX](https://tldp.org/LDP/Bash-Beginners-Guide/html/index.html)
 [AWK](https://klashxx.github.io/awk-power-for-your-cmd), power for your command line.
 [AWK GTF!](http://reasoniamhere.com/2013/09/16/awk-gtf-how-to-analyze-a-transcriptome-like-a-pro-part-1/), How to Analyze a Transcriptome Like a Pro... 
 
-### [Python]() 
-I suggest to use [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.html) instead of PyCharm.  
+### [Python]() I suggest to use [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.html) instead of PyCharm.  
 
 ### [R]()
 

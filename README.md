@@ -5,7 +5,7 @@ Bioinformatics resources and tools...
 #### [PH525x series - Biomedical Data Science](http://genomicsclass.github.io/book/)
 #### [HarvardX Biomedical Data Science Open Online Training](http://rafalab.github.io/pages/harvardx.html)
 #### [Next-Gen Sequence Analysis Workshop (2019)](https://angus.readthedocs.io/en/2019/toc.html#)
-
+#### [Analysis pipelines with Python](https://hpc-carpentry.github.io/hpc-python/)
 
 # Programing languages
 ### [UNIX](https://tldp.org/LDP/Bash-Beginners-Guide/html/index.html)

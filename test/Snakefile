@@ -1,6 +1,5 @@
 #SAMPLES=['A', 'B', 'C']
 
-import os
 # read config info into this namespace
 configfile: "config.yaml"
   

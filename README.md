@@ -73,7 +73,7 @@ you can test your environment if snakemake and bwa are installed by typing `whic
 run the following code in the test folder which has the [__Snakemake__](https://github.com/emineozsahin/Bioinformatics/blob/main/test/Snakefile) file 
 
 ```
-snakemake --use-conda --cores 2  mapped_reads/A.bam
+snakemake --use-conda --cores 1  mapped_reads/{A,B,C}.bam
 ```
 This will create a mapped_reads folder with a bam file 
 

@@ -1,8 +1,13 @@
-SAMPLES=['A', 'B', 'C']
+#SAMPLES=['A', 'B', 'C']
 
+import os
+# read config info into this namespace
+configfile: "config.yaml"
+  
 rule all:
   input:
-    expand("data/samples/{sample}.fastq", sample=SAMPLES)
+    #expand("data/samples/{sample}.fastq", sample=SAMPLES)
+    expand("data/samples/{sample}.fastq", sample=config["SAMPLES"])
 
 rule bwa_map:
   input:

@@ -99,6 +99,7 @@ srcdir("filename")
 
 # High Performance Computing
 [AWS](https://aws.amazon.com) and [Compute Canada](https://docs.computecanada.ca/wiki/Compute_Canada_Documentation)
+[tibanna](https://tibanna.readthedocs.io/en/latest/)
 
 # Machine Learning
 [TensorFlow](https://www.tensorflow.org)

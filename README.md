@@ -88,6 +88,15 @@ remove the _test_ environment if it is not needed anymore
 conda remove --name test --all
 ```
 
+[expand](https://endrebak.gitbooks.io/the-snakemake-book/content/chapters/expand/expand.html)
+workflow.snakefile
+workflow.basedir
+srcdir("filename")
+
+#### Wildcards:
+
+
+
 # High Performance Computing
 [AWS](https://aws.amazon.com) and [Compute Canada](https://docs.computecanada.ca/wiki/Compute_Canada_Documentation)
 

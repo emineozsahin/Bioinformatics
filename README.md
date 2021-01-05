@@ -12,7 +12,7 @@ Bioinformatics resources and tools...
 [AWK](https://klashxx.github.io/awk-power-for-your-cmd), power for your command line.
 [AWK GTF!](http://reasoniamhere.com/2013/09/16/awk-gtf-how-to-analyze-a-transcriptome-like-a-pro-part-1/), How to Analyze a Transcriptome Like a Pro... 
 
-### [Python]() 
+### [Python](https://www.w3schools.com/python/default.asp) 
 I suggest to use [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.html) instead of PyCharm.  [Jupyter Notebook configuration](http://stuartmumford.uk/blog/jupyter-notebook-and-conda.html) for the virtual environments.
 
 ### [R]()

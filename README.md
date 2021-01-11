@@ -20,7 +20,7 @@ I suggest to use [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.
 ### [C++](https://www.w3schools.com/cpp/default.asp)
 
 # Virtual Environments
-
+[Conda environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 
 # Package management
 There are several package managers such as pip, homebrew, apt-get, CRAN, CPAN and Bioconductor. [Conda](https://bioconda.github.io/tutorials/gcb2020.html#what-exactly-is-conda) is a combination of other package managers. [Bioconda](https://bioconda.github.io/index.html) is a channel for bioinformatics tools found in conda. [Biopython](https://biopython.org/wiki/Packages) can be installed via conda.        

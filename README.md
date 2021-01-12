@@ -19,8 +19,10 @@ I suggest to use [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.
 
 ### [C++](https://www.w3schools.com/cpp/default.asp)
 
-# Virtual Environments
+# Virtual Environments and Containers
 [Conda environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
+
+[Docker images and containers](https://github.com/docker/labs/blob/master/beginner/chapters/webapps.md)
 
 # Package management
 There are several package managers such as pip, homebrew, apt-get, CRAN, CPAN and Bioconductor. [Conda](https://bioconda.github.io/tutorials/gcb2020.html#what-exactly-is-conda) is a combination of other package managers. [Bioconda](https://bioconda.github.io/index.html) is a channel for bioinformatics tools found in conda. [Biopython](https://biopython.org/wiki/Packages) can be installed via conda.        
@@ -74,18 +76,13 @@ you can test your environment if snakemake and bwa are installed by typing `whic
 run the following code in the test folder which has the [__Snakemake__](https://github.com/emineozsahin/Bioinformatics/blob/main/test/Snakefile) file 
 
 ```
+#This will create a mapped_reads folder with a bam file 
 snakemake --use-conda --cores 1  mapped_reads/{A,B,C}.bam
-```
-This will create a mapped_reads folder with a bam file 
 
-Deactivate the environment
-
-```
+#Deactivate the environment
 conda deactivate
-```
 
-remove the _test_ environment if it is not needed anymore
-```
+#remove the _test_ environment if it is not needed anymore
 conda remove --name test --all
 ```
 

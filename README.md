@@ -22,7 +22,8 @@ I suggest to use [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.
 # Virtual Environments and Containers
 [Conda environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 
-[Docker images and containers](https://github.com/docker/labs/blob/master/beginner/chapters/webapps.md)
+[Docker images and containers](https://docs.docker.com/engine/reference/builder/)
+[A docker tutorial](httphttps://github.com/docker/labs/blob/master/beginner/chapters/setup.md)
 
 # Package management
 There are several package managers such as pip, homebrew, apt-get, CRAN, CPAN and Bioconductor. [Conda](https://bioconda.github.io/tutorials/gcb2020.html#what-exactly-is-conda) is a combination of other package managers. [Bioconda](https://bioconda.github.io/index.html) is a channel for bioinformatics tools found in conda. [Biopython](https://biopython.org/wiki/Packages) can be installed via conda.        

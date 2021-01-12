@@ -35,6 +35,7 @@ Bioconda compose of a collection of bioinformatics [tools](https://anaconda.org/
 # Reproducible workflow
 [R Markdown](https://rmarkdown.rstudio.com) and [Snakemake](https://snakemake.readthedocs.io/en/stable/)
 
+[Snakemake and containers](https://learning.cyverse.org/projects/Container-camp-2020/en/latest/breakout/workflows.html#setup) 
 ## Snakemake
 #### I summurized a snakemake workflow which can be found [Snakemake](https://snakemake.readthedocs.io/en/stable/) website in detail. 
 

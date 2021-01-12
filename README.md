@@ -23,6 +23,7 @@ I suggest to use [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/index.
 [Conda environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 
 [Docker images and containers](https://docs.docker.com/engine/reference/builder/)
+
 [A docker tutorial](httphttps://github.com/docker/labs/blob/master/beginner/chapters/setup.md)
 
 # Package management

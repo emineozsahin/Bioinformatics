@@ -37,6 +37,7 @@ Bioconda compose of a collection of bioinformatics [tools](https://anaconda.org/
 
 [Snakemake and containers](https://learning.cyverse.org/projects/Container-camp-2020/en/latest/breakout/workflows.html#setup) 
 ## Snakemake
+[slides](https://slides.com/johanneskoester/snakemake-tutorial)
 #### I summurized a snakemake workflow which can be found [Snakemake](https://snakemake.readthedocs.io/en/stable/) website in detail. 
 
 Start with a folder to test the snakemake and download the tutorial files.   

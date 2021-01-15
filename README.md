@@ -41,8 +41,9 @@ Bioconda compose of a collection of bioinformatics [tools](https://anaconda.org/
 [R Markdown](https://rmarkdown.rstudio.com) and [Snakemake](https://snakemake.readthedocs.io/en/stable/)
 
 [Snakemake and containers](https://learning.cyverse.org/projects/Container-camp-2020/en/latest/breakout/workflows.html#setup) 
+
 ## Snakemake
-[slides](https://slides.com/johanneskoester/snakemake-tutorial)
+[Slides](https://slides.com/johanneskoester/snakemake-tutorial)
 #### I summurized a snakemake workflow which can be found [Snakemake](https://snakemake.readthedocs.io/en/stable/) website in detail. 
 
 Start with a folder to test the snakemake and download the tutorial files.   
@@ -102,7 +103,7 @@ srcdir("filename")
 
 #### Wildcards:
 
-Some tricks to use Snakemke wildcards:
+Some tricks to use Snakemake wildcards:
 
 ```
 DIRECTION = ["R1", "R2"]
@@ -110,7 +111,7 @@ SAMPLES = ["A", "B"]
 
 rule all:
     input:
-	      expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS)
+        expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS)
 
 rule copy_reads:
     input: 
@@ -120,10 +121,10 @@ rule copy_reads:
     threads: 1
     group: "map_reads"
     resources:
-	      io=100,
+	io=100,
         disk_mb=map_read_group_disk_mb
     shell:
-	      "cp {input} reads/"
+        "cp {input} reads/"
 ```
 
 When Snakefile run with ```snakemake -j 100``` the copy_reads rule is executed automatically. To do this *rule all* is essential and it has to have the outputs of the rule copy_reads. 
@@ -133,7 +134,7 @@ Now extend the Snakefile with second rule called fastqc.
 ```
 rule all:
     input:
-	      expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS)
+        expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS)
 
 rule copy_reads:
     input: 
@@ -143,21 +144,21 @@ rule copy_reads:
     threads: 1
     group: "map_reads"
     resources:
-	      io=100,
+	io=100,
         disk_mb=map_read_group_disk_mb
     shell:
-	      "cp {input} reads/"
+        "cp {input} reads/"
        
        
 rule fastqc:       
     input:
-	      expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS)
+	expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS)
     output:
         expand("reports/fastqc/{sample}_{direction}_fastqc.zip", sample=SAMPLES, direction=DIRECTIONS)
     group: 'map_reads'
     threads: 4
     resources:
-	      mem_mb=4000,
+	mem_mb=4000,
         disk_mb=map_read_group_disk_mb
     shell:
         "fastqc -q -o reports/fastqc -t {threads} {input}"
@@ -169,7 +170,7 @@ If I run this Snakefile via ```snakemake -j 100```, it won't give an error but i
 ```
 rule all:
     input:
-	      expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS),
+        expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS),
         expand("reports/fastqc/{sample}_{direction}_fastqc.zip", sample=SAMPLES, direction=DIRECTIONS)
 
 rule copy_reads:
@@ -180,21 +181,21 @@ rule copy_reads:
     threads: 1
     group: "map_reads"
     resources:
-	      io=100,
+        io=100,
         disk_mb=map_read_group_disk_mb
     shell:
-	      "cp {input} reads/"
+        "cp {input} reads/"
        
        
 rule fastqc:       
     input:
-	      expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS)
+        expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS)
     output:
         expand("reports/fastqc/{sample}_{direction}_fastqc.zip", sample=SAMPLES, direction=DIRECTIONS)
     group: 'map_reads'
     threads: 4
     resources:
-	      mem_mb=4000,
+	mem_mb=4000,
         disk_mb=map_read_group_disk_mb
     shell:
         "fastqc -q -o reports/fastqc -t {threads} {input}"
@@ -208,7 +209,7 @@ There is another way to run rule fastqc automatically. I am going to add third r
 ```
 rule all:
     input:
-	      expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS),
+        expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS),
         "fastqc_scores_report.csv"
 
 rule copy_reads:
@@ -222,18 +223,18 @@ rule copy_reads:
 	      io=100,
         disk_mb=map_read_group_disk_mb
     shell:
-	      "cp {input} reads/"
+        "cp {input} reads/"
        
        
 rule fastqc:       
     input:
-	      expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS)
+        expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS)
     output:
         expand("reports/fastqc/{sample}_{direction}_fastqc.zip", sample=SAMPLES, direction=DIRECTIONS)
     group: 'map_reads'
     threads: 4
     resources:
-	      mem_mb=4000,
+        mem_mb=4000,
         disk_mb=map_read_group_disk_mb
     shell:
         "fastqc -q -o reports/fastqc -t {threads} {input}"
@@ -241,20 +242,41 @@ rule fastqc:
       
 rule fastqc_report:
     input:
-	      expand("reports/fastqc/{sample}_{direction}_fastqc.zip", sample=SAMPLES, direction=DIRECTIONS) 
+        expand("reports/fastqc/{sample}_{direction}_fastqc.zip", sample=SAMPLES, direction=DIRECTIONS) 
     output:
-	      "fastqc_scores_report.csv"
+        "fastqc_scores_report.csv"
     shell: "python scripts/fastqc_report.py"
 
 ``` 
 
-Here there is something one might think why I do not remove the outputs of rule copy_reads from rule all. I did not use wildcards in the input of the copy_reads but I identified them in the outputs of the copy_reads. Even though the get_input_reads function use the wildcards.sample and wildcards.direction, the meaning of the sample and direction wildcards are introduces to Snakemake in the outputs of the rule copy_reads. Snakemake does not accept the *__wildcards__* from outputs as an input of another rule. 
+Here there is something one might think why I do not remove the outputs of rule copy_reads from rule all. I did not use wildcards in the input of the copy_reads but I identified them in the outputs of the copy_reads. Even though the get_input_reads function use the wildcards.sample and wildcards.direction, the meaning of the wildcards sample and direction are introduced to Snakemake in the outputs of the rule copy_reads. Snakemake does not accept the *__wildcards__* from outputs as an input of another rule. 
 
 
 
 # High Performance Computing
-[AWS](https://aws.amazon.com) and [Compute Canada](https://docs.computecanada.ca/wiki/Compute_Canada_Documentation)
-[tibanna](https://tibanna.readthedocs.io/en/latest/)
+### [AWS](https://aws.amazon.com) and [tibanna](https://tibanna.readthedocs.io/en/latest/)
+
+### [Compute Canada](https://docs.computecanada.ca/wiki/Compute_Canada_Documentation)
+Configure the local computer not to use password when connecting to graham.
+
+Type following to the terminal ```ssh_keygen``` this will ask a name for the rsa key-pair. I am going to give it a name rsa_key. 
+
+This will produce a rsa key file called rsa_key on the working directory. One can move this key-pair to the ~/.ssh folder. 
+
+Now configure and resolve to access graham without password.
+
+```
+eval 'ssh-agent'
+ssh-add ~/.ssh/rsa_key
+```
+Note that it is important to add the key file name after ssh-add command. Now we can log in graham by typing 
+```ssh  -i  ~/.ssh/rsa_key  username@graham.computecanada``` The first time of login it will ask passphrase which is the password but later logins it won't ask a password. Adding an alias to the ~/.bash_profile file is also handy so that loging to clusters by typing *graham*. 
+```
+nano ~/.bash_profile
+
+#add the following line to the end of the file
+alias graham="ssh -i ~/.ssh/rsa_key username@graham.computecanada.ca"
+```
 
 # Machine Learning
 [TensorFlow](https://www.tensorflow.org)

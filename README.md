@@ -202,9 +202,9 @@ rule fastqc:
 
 ``` 
 
-Now when I typed ```snakemake -j 100``` both rules will be executed and reports/fastqc and reads/ folders will be produced with their contents. 
+Now when I type ```snakemake -j 100``` both rules will be executed and reports/fastqc and reads/ folders will be produced with their contents. 
 
-There is another way to run rule fastqc automatically. I am going to add third rule which is called fastqc_report to the Snakefile. In this case the outputs of the rule fastqc is the inputs of the rule fastqc_report. I am going to add the *outputs of the fastqc_report* to the rule all and remove the *outputs of the rule fastqc* from the rule all. Beause fastqc_report needs the outputs of the fastqc, fastqc will be executed without writing its outputs to the *rule all*.    
+There is another way to run rule fastqc automatically. I am going to add third rule which is called fastqc_report to the Snakefile. In this case the outputs of the rule fastqc is the inputs of the rule fastqc_report. I am going to add the *outputs of the fastqc_report* to the rule all and remove the *outputs of the rule fastqc* from the rule all. Because fastqc_report needs the outputs of the fastqc, fastqc will be executed without writing its outputs to the *rule all*.    
 
 ```
 rule all:

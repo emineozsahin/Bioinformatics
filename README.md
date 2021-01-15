@@ -259,7 +259,7 @@ Here there is something one might think why I do not remove the outputs of rule 
 ### [Compute Canada](https://docs.computecanada.ca/wiki/Compute_Canada_Documentation)
 Configure the local computer not to use password when connecting to graham.
 
-Type following to the terminal ```ssh_keygen``` this will ask a name for the rsa key-pair. I am going to give it a name rsa_key. 
+Type ```ssh_keygen``` to the terminal. This will ask a name for the rsa key-pair. I am going to give it a name rsa_key. 
 
 This will produce a rsa key file called rsa_key on the working directory. One can move this key-pair to the ~/.ssh folder. 
 

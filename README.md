@@ -1,6 +1,9 @@
 # Bioinformatics
 Bioinformatics resources and tools...
 
+
+
+
 # Resources and tutorials 
 #### [PH525x series - Biomedical Data Science](http://genomicsclass.github.io/book/)
 #### [HarvardX Biomedical Data Science Open Online Training](http://rafalab.github.io/pages/harvardx.html)
@@ -98,6 +101,154 @@ workflow.basedir
 srcdir("filename")
 
 #### Wildcards:
+
+Some tricks to use Snakemke wildcards:
+
+```
+DIRECTION = ["R1", "R2"]
+SAMPLES = ["A", "B"]
+
+rule all:
+    input:
+	      expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS)
+
+rule copy_reads:
+    input: 
+        lambda wildcards: get_input_reads(wildcards, sample_annotation_df)
+    output:
+        'reads/{sample}_{direction}.fastq.gz'
+    threads: 1
+    group: "map_reads"
+    resources:
+	      io=100,
+        disk_mb=map_read_group_disk_mb
+    shell:
+	      "cp {input} reads/"
+```
+
+When Snakefile run with ```snakemake -j 100``` the copy_reads rule is executed automatically. To do this *rule all* is essential and it has to have the outputs of the rule copy_reads. 
+
+Now extend the Snakefile with second rule called fastqc.
+
+```
+rule all:
+    input:
+	      expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS)
+
+rule copy_reads:
+    input: 
+        lambda wildcards: get_input_reads(wildcards, sample_annotation_df)
+    output:
+        'reads/{sample}_{direction}.fastq.gz'
+    threads: 1
+    group: "map_reads"
+    resources:
+	      io=100,
+        disk_mb=map_read_group_disk_mb
+    shell:
+	      "cp {input} reads/"
+       
+       
+rule fastqc:       
+    input:
+	      expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS)
+    output:
+        expand("reports/fastqc/{sample}_{direction}_fastqc.zip", sample=SAMPLES, direction=DIRECTIONS)
+    group: 'map_reads'
+    threads: 4
+    resources:
+	      mem_mb=4000,
+        disk_mb=map_read_group_disk_mb
+    shell:
+        "fastqc -q -o reports/fastqc -t {threads} {input}"
+
+``` 
+
+If I run this Snakefile via ```snakemake -j 100```, it won't give an error but it would not run the fastqc rule automatically. It would produce only the reads folder with the copied files. To run the fastqc rule ```snakemake -j 100 fastqc``` command has to be used. If I want to run fastqc rule automatically with just typing ```snakemake -j 100```, I have to add the outputs of fastqc to the *rule all*
+
+```
+rule all:
+    input:
+	      expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS),
+        expand("reports/fastqc/{sample}_{direction}_fastqc.zip", sample=SAMPLES, direction=DIRECTIONS)
+
+rule copy_reads:
+    input: 
+        lambda wildcards: get_input_reads(wildcards, sample_annotation_df)
+    output:
+        'reads/{sample}_{direction}.fastq.gz'
+    threads: 1
+    group: "map_reads"
+    resources:
+	      io=100,
+        disk_mb=map_read_group_disk_mb
+    shell:
+	      "cp {input} reads/"
+       
+       
+rule fastqc:       
+    input:
+	      expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS)
+    output:
+        expand("reports/fastqc/{sample}_{direction}_fastqc.zip", sample=SAMPLES, direction=DIRECTIONS)
+    group: 'map_reads'
+    threads: 4
+    resources:
+	      mem_mb=4000,
+        disk_mb=map_read_group_disk_mb
+    shell:
+        "fastqc -q -o reports/fastqc -t {threads} {input}"
+
+``` 
+
+Now when I typed ```snakemake -j 100``` both rules will be executed and reports/fastqc and reads/ folders will be produced with their contents. 
+
+There is another way to run rule fastqc automatically. I am going to add third rule which is called fastqc_report to the Snakefile. In this case the outputs of the rule fastqc is the inputs of the rule fastqc_report. I am going to add the *outputs of the fastqc_report* to the rule all and remove the *outputs of the rule fastqc* from the rule all. Beause fastqc_report needs the outputs of the fastqc, fastqc will be executed without writing its outputs to the *rule all*.    
+
+```
+rule all:
+    input:
+	      expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS),
+        "fastqc_scores_report.csv"
+
+rule copy_reads:
+    input: 
+        lambda wildcards: get_input_reads(wildcards, sample_annotation_df)
+    output:
+        'reads/{sample}_{direction}.fastq.gz'
+    threads: 1
+    group: "map_reads"
+    resources:
+	      io=100,
+        disk_mb=map_read_group_disk_mb
+    shell:
+	      "cp {input} reads/"
+       
+       
+rule fastqc:       
+    input:
+	      expand("reads/{sample}_{direction}.fastq.gz", sample=SAMPLES, direction=DIRECTIONS)
+    output:
+        expand("reports/fastqc/{sample}_{direction}_fastqc.zip", sample=SAMPLES, direction=DIRECTIONS)
+    group: 'map_reads'
+    threads: 4
+    resources:
+	      mem_mb=4000,
+        disk_mb=map_read_group_disk_mb
+    shell:
+        "fastqc -q -o reports/fastqc -t {threads} {input}"
+      
+      
+rule fastqc_report:
+    input:
+	      expand("reports/fastqc/{sample}_{direction}_fastqc.zip", sample=SAMPLES, direction=DIRECTIONS) 
+    output:
+	      "fastqc_scores_report.csv"
+    shell: "python scripts/fastqc_report.py"
+
+``` 
+
+Here there is something one might think why I do not remove the outputs of rule copy_reads from rule all. I did not use wildcards in the input of the copy_reads but I identified them in the outputs of the copy_reads. Even though the get_input_reads function use the wildcards.sample and wildcards.direction, the meaning of the sample and direction wildcards are introduces to Snakemake in the outputs of the rule copy_reads. Snakemake does not accept the *__wildcards__* from outputs as an input of another rule. 
 
 
 

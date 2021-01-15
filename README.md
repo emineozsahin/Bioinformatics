@@ -103,7 +103,7 @@ srcdir("filename")
 
 #### Wildcards:
 
-Some tricks to use Snakemake wildcards:
+Some tips to use Snakemake wildcards:
 
 ```
 DIRECTION = ["R1", "R2"]
@@ -269,8 +269,8 @@ Now configure and resolve to access graham without password.
 eval 'ssh-agent'
 ssh-add ~/.ssh/rsa_key
 ```
-Note that it is important to add the key file name after ssh-add command. Now we can log in graham by typing 
-```ssh  -i  ~/.ssh/rsa_key  username@graham.computecanada``` The first time of login it will ask passphrase which is the password but later logins it won't ask a password. Adding an alias to the ~/.bash_profile file is also handy so that loging to clusters by typing *graham*. 
+Note that it is important to add the key file name after ssh-add command. Now we can log in cluster by typing 
+```ssh  -i  ~/.ssh/rsa_key  username@graham.computecanada``` The first time of login it will ask passphrase which is the password but it won't ask a password for later logins. Adding an alias to the ~/.bash_profile file is also handy so that we can log in to clusters by just typing *graham*. 
 ```
 nano ~/.bash_profile
 

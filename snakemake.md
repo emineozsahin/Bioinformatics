@@ -1,6 +1,4 @@
 # SNAKEMAKE 
-## 1. Simple snakemake tutorial
-## 2. Snakemake Wildcards tips
 
 ## 1. Simple snakemake tutorial
 [Slides](https://slides.com/johanneskoester/snakemake-tutorial)

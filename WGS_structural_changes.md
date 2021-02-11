@@ -1,6 +1,6 @@
 # Identif the structural changes of a genome from NGS data
 
-Before approching any software, having a bed file for annotations on hand is useful. 
+Before approaching any software, having a bed file for annotations in hand is helpful. 
 
 ### Prepare a bed file from gtf format  
 get gtf file for *Saccharomyces cerevisiae* and unzip the file

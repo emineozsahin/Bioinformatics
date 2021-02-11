@@ -1,6 +1,8 @@
 # SNAKEMAKE 
+## 1. Simple snakemake tutorial
+## 2. Snakemake Wildcards tips
 
-## Snakemake
+## 1. Simple snakemake tutorial
 [Slides](https://slides.com/johanneskoester/snakemake-tutorial)
 #### I summurized a snakemake workflow which can be found [Snakemake](https://snakemake.readthedocs.io/en/stable/) website in detail. 
 
@@ -59,7 +61,7 @@ workflow.snakefile
 workflow.basedir
 srcdir("filename")
 
-#### Wildcards:
+## 2. Snakemake Wildcards tips
 
 Some tips to use Snakemake wildcards:
 

@@ -196,7 +196,7 @@ for i in *_denoised.bin;do basename=${i%_denoised.bin}_histo.txt; ./../nQuire hi
 
 # [ploidyNGS](https://github.com/diriano/ploidyNGS)
 
-ploidyNGS is slow. For a 3Gb file it took 2 hours to finish the job. 
+ploidyNGS is slow. For a 3Gb bam file it took 2 hours to finish the job. 
 
 ```
 #!/bin/sh

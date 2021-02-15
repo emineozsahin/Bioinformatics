@@ -45,27 +45,59 @@ copy_number_ploidy.txt seems:
 
 
 # [nQuire](https://github.com/clwgg/nQuire)
+Identify the ploidy levels of the samples. To do so, I partitite the bed file to chromosome specific bed files. I used ploidy.run found in /home/emine85/nQuire/ploidy to produce *-bedcc.bin files for each chromosome. 
 
 ```
-./../nQuire create -b ../../scratch/alignments/sample11/Cali_Ale.MarkUp.sorted.bam -o S288C_$basename -r S288C_chrI.bed -y
-
-for i in S288C_chr*;do temp=${i%.bed}; basename=`echo $temp | sed 's/S288C_/Cali_/'`; ./../nQuire create -b ../../scratch/alignments/sample11/Cali_Ale.MarkUp.sorted.bam -o $basename -r S288C_chrI.bed -y ;done
-
-for i in S288C_chr*;do temp=${i%.bed}; basename=`echo $temp | sed 's/S288C_/Granvin_1_/‘`; ./../nQuire create -b ../../scratch/alignments/sample11/Granvin_1.MarkUp.sorted.bam -o $basename -r S288C_chrI.bed -y ;done
-```
-I used ploidy.run found in /home/emine85/nQuire/ploidy to produce *-bedcc.bin files for each chromosome. 
+for i in S288C_chr*;do temp=${i%.bed}; basename=`echo $temp | sed 's/S288C_/Cali_/'`; ./../nQuire create -b /scratch/alignments/sample11/Cali_Ale.MarkUp.sorted.bam -o $basename -r S288C_chrI.bed -y ;done
 
 ```
-for i in *bedcc.bin;do echo $i ;./../nQuire view $i> ${i%-bedcc.bin}.txt;done 
+
+Denoise the bin files: 
+```
+for i in *-bedcc.bin;do echo $basename; basename=${i%-bedcc.bin}_denoised ; ./../nQuire denoise $i -o $basename;done
 ```
 
-Then following to retrieve the results.  
+Retrieve the results:
 ```
-for i in *bedcc.bin;do ./../nQuire lrdmodel $i |grep -v "file";done > ploidy_chr.txt
+for i in *denoised.bin;do ./../nQuire lrdmodel $i |grep -v "file";done > ploidy_chr_denoised.txt
 ```
-plot the delta-log-likelihoods with any tool.
 
+plot the delta-log-likelihoods via ggplot
 [R Graphics Cookbook](https://r-graphics.org)
+
+Change the chromosome names from roman numerals 
+
+```
+sed "s/chrIII/chr3/g" ploidy_chr_denoised.txt |sed "s/chrII/chr2/g"|sed "s/chrIV/chr4/g"| sed "s/chrIX/chr9/g"|sed "s/chrI/chr1/g"|sed "s/chrVIII/chr8/g"|sed "s/chrVII/chr7/g"|sed "s/chrVI/chr6/g"|sed "s/chrV/chr5/g"|sed "s/chrXIII/chr13/g"|sed "s/chrXII/chr12/g"|sed "s/chrXIV/chr14/g"|sed "s/chrXI/chr11/g"|sed "s/chrXVI/chr16/g"|sed "s/chrXV/chr15/g"|sed "s/chrX/chr10/g" > ploidy_chr_denoised_ordered.txt
+
+#start R
+R
+
+library(stringr)
+library(reshape2)
+library(ggplot2)
+
+data=read.table("ploidy_chr_denoised.txt", sep="\t")
+data$V1=gsub("_denoised.bin", "", data$V1)
+data=cbind(str_split_fixed(data$V1, "_chr", 2), data)[,-3]
+colnames(data)<- c("sample","Chromosomes","free","dip","tri","tet","diploid","triploid","tetraploid")
+samples <- lapply(unique(data$sample), function(x) data[which(data$sample == x),])
+names(samples) <- unique(data$sample)
+samples <- lapply(samples, function(x)  x[,c("Chromosomes","diploid","triploid","tetraploid")])
+samples <- lapply(samples, function(x) melt(x, id.vars="Chromosomes"))
+for (i in names(samples)) {colnames(samples[[i]]) <- c("Chromosomes", "ploidy", "delta_Log_Likelihood")} 
+samples <- lapply (samples, function(x) x[-which(x$Chromosomes == "mt"),])
+for (i in 1:length(samples)) {samples[[i]]$Chromosomes=factor(samples[[i]]$Chromosomes, levels=c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16), ordered = TRUE)}
+
+for (i in 1:length(samples)) {ggplot(samples[[i]], aes(Chromosomes, delta_Log_Likelihood, group=ploidy, colour=ploidy)) + geom_line() + geom_point(size = 1) +   scale_colour_brewer(palette = "Set1") + ggtitle(names(samples[i])) + ggsave(paste0(names(samples[i]), "_ploidy.pdf”), width = 8, height = 3, units = "in")}
+
+```
+
+histogram for each chromosome
+```
+for i in *_denoised.bin;do basename=${i%_denoised.bin}_histo.txt; ./../nQuire histo $i > $basename ;done
+```
+
 
 # ploidyNGS
 

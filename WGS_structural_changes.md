@@ -117,13 +117,13 @@ cnvkit2.run:
 
 ## Usage: sbatch cnvkit2.run  sample.MarkUp.sorted.cns  sample.vcf
 
-#SBATCH --account=def-gvdmlab
+#SBATCH --account=def-*
 #SBATCH --time=0-01:00:00 ## days-hours:minutes:seconds
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1 # number of threads
 #SBATCH --mem=16000 # requested memory (in MB)
 #SBATCH --job-name=cnvkit
-#SBATCH --mail-user=<eozsahin@uoguelph.ca>
+#SBATCH --mail-user=<*@*.ca>
 #SBATCH --mail-type=END
 
 echo $1

@@ -19,9 +19,7 @@ Modify the exon.txt file via R and wrote the file as in a bed format.
 write.table(data, "S288C.bed", sep ="\t", quote=FALSE, row.names=FALSE, col.names=FALSE)
 ```
 
-# CNVkit
-
-
+# [CNVkit](https://cnvkit.readthedocs.io/en/stable/)
 
 ```
 for i in `ls *MarkUp.sorted.cns`;do basename="${i%MarkUp.sorted.cns}vcf.gz"; sbatch cnvkit2.run $i  $basename; done
@@ -37,8 +35,6 @@ for i in `less GENES_FOR_CNV_new_line.txt`; do for j in `less sample_order.txt`;
 ```
 
 copy_number_ploidy.txt seems:
-
-# Cnvnator
 
 
 
@@ -102,4 +98,7 @@ for i in *_denoised.bin;do basename=${i%_denoised.bin}_histo.txt; ./../nQuire hi
 [a sample histo figure](https://github.com/emineozsahin/Bioinformatics/blob/main/sample_chrI_histo.txt)
 
 # ploidyNGS
+# Cnvnator
+
+
 

@@ -65,7 +65,7 @@ for i in *bedcc.bin;do ./../nQuire lrdmodel $i |grep -v "file";done > ploidy_chr
 ```
 plot the delta-log-likelihoods with any tool.
 
-(R Graphics Cookbook)[https://r-graphics.org]
+[R Graphics Cookbook](https://r-graphics.org)
 
 # ploidyNGS
 

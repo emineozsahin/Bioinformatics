@@ -44,7 +44,7 @@ copy_number_ploidy.txt seems:
 
 
 
-# nQuire
+# [nQuire](https://github.com/clwgg/nQuire)
 
 ```
 ./../nQuire create -b ../../scratch/alignments/sample11/Cali_Ale.MarkUp.sorted.bam -o S288C_$basename -r S288C_chrI.bed -y

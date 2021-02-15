@@ -41,7 +41,7 @@ copy_number_ploidy.txt seems:
 
 
 # [nQuire](https://github.com/clwgg/nQuire)
-Identify the ploidy levels of the samples. To do so, I partitite the bed file to chromosome specific bed files. I used ploidy.run found in /home/emine85/nQuire/ploidy to produce *-bedcc.bin files for each chromosome. 
+Identify the ploidy levels of the samples. To do so, I separated the bed file into chromosome specific bed files. I used ploidy.run found in /home/emine85/nQuire/ploidy to produce -bedcc.bin files for each chromosome.
 
 ```
 for i in S288C_chr*;do temp=${i%.bed}; basename=`echo $temp | sed 's/S288C_/Cali_/'`; ./../nQuire create -b /scratch/alignments/sample11/Cali_Ale.MarkUp.sorted.bam -o $basename -r S288C_chrI.bed -y ;done
@@ -97,8 +97,8 @@ for i in *_denoised.bin;do basename=${i%_denoised.bin}_histo.txt; ./../nQuire hi
 ```
 [a sample histo figure](https://github.com/emineozsahin/Bioinformatics/blob/main/sample_chrI_histo.txt)
 
-# ploidyNGS
-# Cnvnator
+# [ploidyNGS](https://github.com/diriano/ploidyNGS)
+# [cnvnator](https://github.com/abyzovlab/CNVnator)
 
 
 

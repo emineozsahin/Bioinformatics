@@ -99,6 +99,33 @@ or simply filter the cn{s,r} files, but if do not change the chr names they will
 for i in ../*.MarkUp.sorted.cns; do basename=${i%.MarkUp.sorted.cns}.call.cns; cnvkit.py call $i -m none --center biweight --drop-low-coverage --ploidy 4 -o $basename ;done
 
 ```
+
+I eliminated very low points on the scatter plot and removed the log2 values lower than -15.
+
+```
+for i in *.call.chr.*; do Rscript log_filter.R $i;done
+```
+
+log_filter.R:
+
+``` 
+# input file: sample.call.chr.cnr
+# Usage: Rscript  log_filter.R  sample.call.chr.cnr
+ 
+args <- commandArgs(trailingOnly = TRUE)
+filename <- args[1]
+
+log_filter <- function(file) {
+        data=read.csv(file, header=TRUE, sep="\t")
+        data_filtered<-data[which(data$log2 >= -15),]
+        fname=gsub("call.chr", "filtered", file)
+        write.table(data_filtered, fname, row.names=FALSE, quote=FALSE, sep="\t")
+        }
+
+
+log_filter(filename)
+```
+
 plot the copy ratios:
 
 ```

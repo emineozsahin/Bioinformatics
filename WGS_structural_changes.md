@@ -93,13 +93,13 @@ for (i in 1:length(samples)) {ggplot(samples[[i]], aes(Chromosomes, delta_Log_Li
 
 
 ```
-[a sample figure](https://github.com/emineozsahin/Bioinformatics/blob/main/Picture1.png)
+[a sample ploidy figure](https://github.com/emineozsahin/Bioinformatics/blob/main/Picture1.png)
 
 histogram for each chromosome
 ```
 for i in *_denoised.bin;do basename=${i%_denoised.bin}_histo.txt; ./../nQuire histo $i > $basename ;done
 ```
-
+[a sample histo figure](https://github.com/emineozsahin/Bioinformatics/blob/main/sample_chrI_histo.txt)
 
 # ploidyNGS
 

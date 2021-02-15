@@ -186,13 +186,13 @@ for (i in 1:length(samples)) {ggplot(samples[[i]], aes(Chromosomes, delta_Log_Li
 
 
 ```
-[a sample ploidy figure](https://github.com/emineozsahin/Bioinformatics/blob/main/Picture1.png)
+[a sample ploidy figure](https://github.com/emineozsahin/Bioinformatics/blob/main/images/sample_Rplot.pdf)
 
 histogram for each chromosome
 ```
 for i in *_denoised.bin;do basename=${i%_denoised.bin}_histo.txt; ./../nQuire histo $i > $basename ;done
 ```
-[a sample histo figure](https://github.com/emineozsahin/Bioinformatics/blob/main/sample_chrI_histo.txt)
+[a sample histo figure](https://github.com/emineozsahin/Bioinformatics/blob/main/images/sample_chrI_histo.txt)
 
 # [ploidyNGS](https://github.com/diriano/ploidyNGS)
 
@@ -225,7 +225,7 @@ result files:
 1-sample_ploidyNGS_depth100.ks-distance.PloidyNGS.tbl 
 2-sample_ploidyNGS_depth100.tab
 3-sample_ploidyNGS_depth100.tab.PloidyNGS.pdf
-[a sample pdf](https://github.com/emineozsahin/Bioinformatics/blob/main/sample_ploidyNGS_depth100.tab.PloidyNGS.pdf)
+[a sample pdf](https://github.com/emineozsahin/Bioinformatics/blob/main/images/sample_ploidyNGS_depth100.tab.PloidyNGS.pdf)
 
 # [cnvnator](https://github.com/abyzovlab/CNVnator)
 

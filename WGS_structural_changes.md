@@ -225,7 +225,7 @@ result files:
 1-sample_ploidyNGS_depth100.ks-distance.PloidyNGS.tbl 
 2-sample_ploidyNGS_depth100.tab
 3-sample_ploidyNGS_depth100.tab.PloidyNGS.pdf
-[a sample pdf](
+[a sample pdf](https://github.com/emineozsahin/Bioinformatics/blob/main/sample_ploidyNGS_depth100.tab.PloidyNGS.pdf)
 
 # [cnvnator](https://github.com/abyzovlab/CNVnator)
 

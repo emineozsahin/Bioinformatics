@@ -2,7 +2,7 @@
 
 Before approaching any software, having a bed file for annotations in hand is helpful. 
 
-### Prepare a bed file from gtf format  
+### Prepare a bed file from gtf 
 get gtf file for *Saccharomyces cerevisiae* and unzip the file
 ```
 wget ftp://ftp.ensembl.org/pub/release-102/gtf/saccharomyces_cerevisiae/Saccharomyces_cerevisiae.R64-1-1.102.gtf.gz
@@ -21,24 +21,95 @@ write.table(data, "S288C.bed", sep ="\t", quote=FALSE, row.names=FALSE, col.name
 
 # [CNVkit](https://cnvkit.readthedocs.io/en/stable/)
 
-```
-for i in `ls *MarkUp.sorted.cns`;do basename="${i%MarkUp.sorted.cns}vcf.gz"; sbatch cnvkit2.run $i  $basename; done
+I submit a job but this could be a fast run.. 
 
+```
+#!/bin/sh
+## This is to use cnvkit to produce .cns and .cnr files from bam files..
+
+## Usage: sbatch cnvkit.run 
+
+#SBATCH --account=def-*
+#SBATCH --time=0-05:00:00 ## days-hours:minutes:seconds
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=11 # number of threads 
+#SBATCH --mem=16000 # requested memory (in MB)
+#SBATCH --job-name=cnvkit
+#SBATCH --mail-user=<*@*>
+#SBATCH --mail-type=END
+
+cnvkit.py batch *MarkUp.sorted.bam -n \
+    --targets S288C.bed  --annotate S288C_xenoRefFlat.txt \
+    --fasta sequences.fna  \
+    --output-reference S288C.cnn --output-dir cnvkit_results/ \
+    --diagram --scatter -p 11
+```
+filter and change the chromosome names in cns and cnr files...
+
+```
+for i in *MarkUp.sorted*; do sh cnvkit_filter.sh $i;done
+```
+
+cnvkit_filter.sh:
+```
+#!/bin/bash
+
+# files: MarkUp.sorted.cns and MarkUp.sorted.cnr
+
+echo $1
+basename=`echo $1 | sed 's/MarkUp.sorted/call/'`
+echo $basename
+
+# filter and adjust the cns and cnr files
+cnvkit.py call $1 -m none --center biweight --drop-low-coverage --ploidy 4 -o  $basename
+
+# resulted file name sample which is basename variable: Cali_Ale.call.cnr
+
+file_output=`echo $basename | sed 's/call/call.chr/'`
+
+# change the chr names
+sed "s/chrIII/chr3/g" $basename |sed "s/chrII/chr2/g"|sed "s/chrIV/chr4/g"| \
+        sed "s/chrIX/chr9/g"|sed "s/chrI/chr1/g"|sed "s/chrVIII/chr8/g"|sed "s/chrVII/chr7/g"|\
+        sed "s/chrVI/chr6/g"|sed "s/chrV/chr5/g"|sed "s/chrXIII/chr13/g"|sed "s/chrXII/chr12/g"|\
+        sed "s/chrXIV/chr14/g"|sed "s/chrXI/chr11/g"|sed "s/chrXVI/chr16/g"|sed "s/chrXV/chr15/g"|\
+        sed "s/chrX/chr10/g" > $file_output
+
+# clean up
+if [[ -s $basename ]]
+  then
+  rm $1
+  echo "removed" $1
+else
+  echo $basename "is empty. Something's fishy.."
+fi
+
+
+if [[ -s $file_output ]]
+  then
+  rm $basename
+  echo "removed" $basename
+else
+  echo $file_output "is empty. Something's fishy.."
+fi
+
+```
+
+or simply filter the cn{s,r} files, but if do not change the chr names they will not be in order on the plot:
+```
 for i in ../*.MarkUp.sorted.cns; do basename=${i%.MarkUp.sorted.cns}.call.cns; cnvkit.py call $i -m none --center biweight --drop-low-coverage --ploidy 4 -o $basename ;done
 
 ```
-
-#Prepared a cnv.number file
+plot the copy ratios:
 
 ```
-for i in `less GENES_FOR_CNV_new_line.txt`; do for j in `less sample_order.txt`;do gene=$i; cordinates=`less $j|grep $gene|cut -f1,2,3,9`;echo $j $gene $cordinates;done ;done |sed 's/ /     /g' > copy_number_ploidy.txt
+for i in  *filtered.cnr;do R_file=${i%cnr}cns; cnvkit.py scatter -s $i $R_file -o ${i%filtered.cnr}_scatter.pdf; done
+
 ```
 
-copy_number_ploidy.txt seems:
-
-
-
-
+#Prepare a copy number file for selected genes
+```
+for i in `less GENES_FOR_CNV_new_line.txt`; do for j in `less sample_order.txt`;do gene=$i; cordinates=`less $j|grep -w $gene|cut -f1,2,3,9`;echo $j $gene $cordinates;done ;done |sed 's/ /     /g' > copy_number_ploidy.txt
+```
 
 # [nQuire](https://github.com/clwgg/nQuire)
 Identify the ploidy levels of the samples. To do so, I separated the bed file into chromosome specific bed files. I used ploidy.run found in /home/emine85/nQuire/ploidy to produce -bedcc.bin files for each chromosome.

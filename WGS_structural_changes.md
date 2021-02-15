@@ -76,7 +76,7 @@ library(stringr)
 library(reshape2)
 library(ggplot2)
 
-data=read.table("ploidy_chr_denoised.txt", sep="\t")
+data=read.table("ploidy_chr_denoised_ordered.txt", sep="\t")
 data$V1=gsub("_denoised.bin", "", data$V1)
 data=cbind(str_split_fixed(data$V1, "_chr", 2), data)[,-3]
 colnames(data)<- c("sample","Chromosomes","free","dip","tri","tet","diploid","triploid","tetraploid")

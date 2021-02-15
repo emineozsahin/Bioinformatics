@@ -106,7 +106,33 @@ for i in  *filtered.cnr;do R_file=${i%cnr}cns; cnvkit.py scatter -s $i $R_file -
 
 ```
 
-#Prepare a copy number file for selected genes
+Prepare a copy number file for selected genes. For this part I also added the vcf file to the analyses and then I retrieved the copy numbers. New cns files: 
+```
+for i in *MarkUp.sorted.cns; do vcf=${i%.MarkUp.sorted.cns}.vcf; sbatch cnvkit2.run  $i  $vcf;done
+```
+cnvkit2.run: 
+```
+#!/bin/sh
+## This script
+
+## Usage: sbatch cnvkit2.run  sample.MarkUp.sorted.cns  sample.vcf
+
+#SBATCH --account=def-gvdmlab
+#SBATCH --time=0-01:00:00 ## days-hours:minutes:seconds
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1 # number of threads
+#SBATCH --mem=16000 # requested memory (in MB)
+#SBATCH --job-name=cnvkit
+#SBATCH --mail-user=<eozsahin@uoguelph.ca>
+#SBATCH --mail-type=END
+
+echo $1
+basename=${1%.MarkUp.sorted.cns}.call.cns
+
+cnvkit.py call $1 -v ../freebayes_vcf/$2  --ploidy 4 -o $basename
+```
+
+Retrieve copy numbers
 ```
 for i in `less GENES_FOR_CNV_new_line.txt`; do for j in `less sample_order.txt`;do gene=$i; cordinates=`less $j|grep -w $gene|cut -f1,2,3,9`;echo $j $gene $cordinates;done ;done |sed 's/ /     /g' > copy_number_ploidy.txt
 ```

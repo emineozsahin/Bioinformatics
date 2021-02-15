@@ -1,6 +1,7 @@
 # Bioinformatics
 Bioinformatics resources and tools...
-## [SOAPdenovo2](https://github.com/aquaskyline/SOAPdenovo2)
+
+#### [SOAPdenovo2](https://github.com/aquaskyline/SOAPdenovo2)
 
 
 
@@ -36,6 +37,35 @@ There are several package managers such as pip, homebrew, apt-get, CRAN, CPAN an
 #### [Biopython Tutorial and Cookbook](http://biopython.org/DIST/docs/tutorial/Tutorial.html)
 
 Bioconda compose of a collection of bioinformatics [tools](https://anaconda.org/bioconda/repo?sort=_name&sort_order=asc&page=15) which can be installed easily.  
+
+
+# High Performance Computing
+### [AWS](https://aws.amazon.com) and [tibanna](https://tibanna.readthedocs.io/en/latest/)
+
+### [Compute Canada](https://docs.computecanada.ca/wiki/Compute_Canada_Documentation)
+Configure the local computer not to use password when connecting to graham.
+
+Type ```ssh_keygen``` to the terminal. This will ask a name for the rsa key-pair. I am going to give it a name rsa_key. 
+
+This will produce a rsa key file called rsa_key on the working directory. One can move this key-pair to the ~/.ssh folder. 
+
+Now configure and resolve to access graham without password.
+
+```
+eval 'ssh-agent'
+ssh-add ~/.ssh/rsa_key
+```
+Note that it is important to add the key file name after ssh-add command. Now we can log in cluster by typing 
+```ssh  -i  ~/.ssh/rsa_key  username@graham.computecanada``` The first time of login it will ask passphrase which is the password but it won't ask a password for later logins. Adding an alias to the ~/.bash_profile file is also handy so that we can log in to clusters by just typing *graham*. 
+```
+nano ~/.bash_profile
+
+#add the following line to the end of the file
+alias graham="ssh -i ~/.ssh/rsa_key username@graham.computecanada.ca"
+```
+
+# Machine Learning
+[TensorFlow](https://www.tensorflow.org)
 
 # Reproducible workflow
 [R Markdown](https://rmarkdown.rstudio.com) and [Snakemake](https://snakemake.readthedocs.io/en/stable/)
@@ -253,32 +283,5 @@ Here there is something one might think why I do not remove the outputs of rule 
 
 
 
-# High Performance Computing
-### [AWS](https://aws.amazon.com) and [tibanna](https://tibanna.readthedocs.io/en/latest/)
-
-### [Compute Canada](https://docs.computecanada.ca/wiki/Compute_Canada_Documentation)
-Configure the local computer not to use password when connecting to graham.
-
-Type ```ssh_keygen``` to the terminal. This will ask a name for the rsa key-pair. I am going to give it a name rsa_key. 
-
-This will produce a rsa key file called rsa_key on the working directory. One can move this key-pair to the ~/.ssh folder. 
-
-Now configure and resolve to access graham without password.
-
-```
-eval 'ssh-agent'
-ssh-add ~/.ssh/rsa_key
-```
-Note that it is important to add the key file name after ssh-add command. Now we can log in cluster by typing 
-```ssh  -i  ~/.ssh/rsa_key  username@graham.computecanada``` The first time of login it will ask passphrase which is the password but it won't ask a password for later logins. Adding an alias to the ~/.bash_profile file is also handy so that we can log in to clusters by just typing *graham*. 
-```
-nano ~/.bash_profile
-
-#add the following line to the end of the file
-alias graham="ssh -i ~/.ssh/rsa_key username@graham.computecanada.ca"
-```
-
-# Machine Learning
-[TensorFlow](https://www.tensorflow.org)
 
 ## [R_Markdown_Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)

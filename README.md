@@ -2,8 +2,8 @@
 Bioinformatics resources and tools...
 
 #### [SOAPdenovo2](https://github.com/aquaskyline/SOAPdenovo2)
-
-#### (Structural Analyses of genomes via NGS)(https://github.com/emineozsahin/Bioinformatics/blob/main/WGS_structural_changes.md)
+#### [Structural Analyses of genomes via NGS](https://github.com/emineozsahin/Bioinformatics/blob/main/WGS_structural_changes.md)
+#### [Snakemake](https://github.com/emineozsahin/Bioinformatics/blob/main/snakemake.md)
 
 # Resources and tutorials 
 #### [PH525x series - Biomedical Data Science](http://genomicsclass.github.io/book/)

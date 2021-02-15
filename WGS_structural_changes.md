@@ -1,4 +1,4 @@
-# Identif the structural changes of a genome from NGS data
+# Identify the structural changes of a genome from NGS data
 
 Before approaching any software, having a bed file for annotations in hand is helpful. 
 

@@ -195,6 +195,38 @@ for i in *_denoised.bin;do basename=${i%_denoised.bin}_histo.txt; ./../nQuire hi
 [a sample histo figure](https://github.com/emineozsahin/Bioinformatics/blob/main/sample_chrI_histo.txt)
 
 # [ploidyNGS](https://github.com/diriano/ploidyNGS)
+
+ploidyNGS is slow. For a 3Gb file it took 2 hours to finish the job. 
+
+```
+#!/bin/sh
+## This script 
+## Usage: sbatch 
+#SBATCH --account=def-*
+#SBATCH --time=0-5:00:00 ## days-hours:minutes:seconds
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=16 # number of threads 
+#SBATCH --mem=16000 # requested memory (in MB)
+#SBATCH --job-name=ploidy
+#SBATCH --mail-user=<*@*>
+#SBATCH --mail-type=END
+
+echo $1
+basename=${1%.MarkUp.sorted.bam}_ploidyNGS
+
+module load python/2
+
+#for one sample:
+#./ploidyNGS.py --guess_ploidy -b ../scratch/alignments/sample11/sample.MarkUp.sorted.bam -o sample_ploidyNGS
+
+./ploidyNGS.py --guess_ploidy -b ../scratch/alignments/sample11/$1 -o $basename
+```
+result files: 
+1-sample_ploidyNGS_depth100.ks-distance.PloidyNGS.tbl 
+2-sample_ploidyNGS_depth100.tab
+3-sample_ploidyNGS_depth100.tab.PloidyNGS.pdf
+[a sample pdf](
+
 # [cnvnator](https://github.com/abyzovlab/CNVnator)
 
 

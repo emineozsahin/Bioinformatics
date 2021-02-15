@@ -92,7 +92,7 @@ for (i in 1:length(samples)) {samples[[i]]$Chromosomes=factor(samples[[i]]$Chrom
 for (i in 1:length(samples)) {ggplot(samples[[i]], aes(Chromosomes, delta_Log_Likelihood, group=ploidy, colour=ploidy)) + geom_line() + geom_point(size = 1) +   scale_colour_brewer(palette = "Set1") + ggtitle(names(samples[i])) + ggsave(paste0(names(samples[i]), "_ploidy.pdf”), width = 8, height = 3, units = "in")}
 
 ```
-(a sample figure)[https://github.com/emineozsahin/Bioinformatics/blob/main/Picture1.png] 
+[a sample figure](https://github.com/emineozsahin/Bioinformatics/blob/main/Picture1.png)
 
 histogram for each chromosome
 ```

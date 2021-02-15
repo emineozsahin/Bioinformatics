@@ -21,7 +21,7 @@ write.table(data, "S288C.bed", sep ="\t", quote=FALSE, row.names=FALSE, col.name
 
 # [CNVkit](https://cnvkit.readthedocs.io/en/stable/)
 
-I submit a job but this could be a fast run.. 
+I submitted a job but this could be a fast run.. 
 
 ```
 #!/bin/sh

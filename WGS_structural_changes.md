@@ -65,9 +65,8 @@ for i in *denoised.bin;do ./../nQuire lrdmodel $i |grep -v "file";done > ploidy_
 plot the delta-log-likelihoods via ggplot
 [R Graphics Cookbook](https://r-graphics.org)
 
-Change the chromosome names from roman numerals 
-
 ```
+#Change the chromosome names from roman numerals 
 sed "s/chrIII/chr3/g" ploidy_chr_denoised.txt |sed "s/chrII/chr2/g"|sed "s/chrIV/chr4/g"| sed "s/chrIX/chr9/g"|sed "s/chrI/chr1/g"|sed "s/chrVIII/chr8/g"|sed "s/chrVII/chr7/g"|sed "s/chrVI/chr6/g"|sed "s/chrV/chr5/g"|sed "s/chrXIII/chr13/g"|sed "s/chrXII/chr12/g"|sed "s/chrXIV/chr14/g"|sed "s/chrXI/chr11/g"|sed "s/chrXVI/chr16/g"|sed "s/chrXV/chr15/g"|sed "s/chrX/chr10/g" > ploidy_chr_denoised_ordered.txt
 
 #start R

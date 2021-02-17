@@ -258,9 +258,30 @@ result files:
 
 # [ConPADE](https://github.com/gramarga/ConPADE)
 
+```
+git clone --recursive https://github.com/gramarga/ConPADE.git
 
+cd ConPADE
 
+module load StdEnv/2018 nixpkgs/16.09  gcc/7.3.0 mono/5.16.0.179
 
+mono ConPADE.exe -bamName sample.MarkUp.sorted.bam
+
+for i in *.noduplicate.sorted.bam;do sbatch conpade.run $i;done
+
+#Prepare a ploidy graph:
+
+library(reshape2)
+library(ggplot2)
+
+data=read.table("Suoma_Hiiva.noduplicate.sorted_ploidy.txt", sep="\t", header=TRUE)
+data<- data[,-2]
+data <- melt(data, id.vars="Contig")
+data$Contig=factor(data$Contig, levels=c("chrI", "chrII", "chrIII", "chrIV", "chrV", "chrVI", "chrVII", "chrVIII", "chrIX", "chrX", "chrXI", "chrXII", "chrXIII", "chrXIV", "chrXV", "chrXVI", "chrmt"), ordered = TRUE)
+
+ggplot(data, aes(Contig, value, group=variable, colour=variable)) + geom_line() + geom_point(size = 1) +   scale_colour_brewer(palette = "Set1") + ggtitle(names(data))
+
+```
 
 
 

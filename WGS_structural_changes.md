@@ -283,8 +283,19 @@ ggplot(data, aes(Contig, value, group=variable, colour=variable)) + geom_line() 
 
 ```
 
+snp.txt 
 
+```
+data=read.table("Suoma_Hiiva.noduplicate.sorted_SNP.txt", sep="\t", header=TRUE)
+data=cbind(data, str_split_fixed(data$Counts, "\\|", 2))
 
+data$AR = 1:length(unique(data$loc))
+
+for (i in 1:length(unique(data$AR))){
+  mx=max(c(as.numeric(as.character(data$`1`[i])), as.numeric(as.character(data$`2`[i]))))
+  mn=min(c(as.numeric(as.character(data$`1`[i])), as.numeric(as.character(data$`2`[i]))))
+  data$AR[i] = mx / mn
+  }
 
 
 

@@ -85,7 +85,7 @@ rule copy_reads:
         "cp {input} reads/"
 ```
 
-If the above Snakefile run with ```snakemake -j 100``` the copy_reads rule is executed automatically. To do this *rule all* is essential and it has to have the outputs of the rule copy_reads. 
+When I ran the above Snakefile with ```snakemake -j 100``` the copy_reads rule is executed automatically. To do this *rule all* is essential and it has to have the outputs of the rule copy_reads. 
 
 Now extend the Snakefile with second rule called fastqc.
 

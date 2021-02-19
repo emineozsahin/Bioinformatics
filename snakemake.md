@@ -54,10 +54,10 @@ conda deactivate
 conda remove --name test --all
 ```
 
-[expand](https://endrebak.gitbooks.io/the-snakemake-book/content/chapters/expand/expand.html)
-workflow.snakefile
-workflow.basedir
-srcdir("filename")
++ [expand](https://endrebak.gitbooks.io/the-snakemake-book/content/chapters/expand/expand.html)
++ workflow.snakefile
++ workflow.basedir
++ srcdir("filename")
 
 ## 2. Snakemake Wildcards tips
 

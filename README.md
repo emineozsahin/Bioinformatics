@@ -3,6 +3,7 @@ My notes on a variety of software..
 #### [Structural Analyses of genomes via NGS](https://github.com/emineozsahin/Bioinformatics/blob/main/WGS_structural_changes.md)
 #### [Snakemake](https://github.com/emineozsahin/Bioinformatics/blob/main/snakemake.md)
 #### [Alignment and snps extraction](https://github.com/emineozsahin/Bioinformatics/blob/main/Alignment.md)
+#### [awk](https://github.com/emineozsahin/Bioinformatics/blob/main/awk.md) 
 
 # Tools
 #### [SOAPdenovo2](https://github.com/aquaskyline/SOAPdenovo2)

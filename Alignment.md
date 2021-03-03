@@ -16,7 +16,7 @@ Suitable for sequences with long internal gaps (use L-ins-i algorithm)
 ### [LASTZ](http://www.bx.psu.edu/~rsharris/lastz/README.lastz-1.04.03.html#fmt_axt) 
 ### [Mauve](http://darlinglab.org/mauve/mauve.html) 
 
-## (ClustalW)[http://manpages.ubuntu.com/manpages/bionic/man1/clustalw.1.html]
+## [ClustalW](http://manpages.ubuntu.com/manpages/bionic/man1/clustalw.1.html)
 
 ClustalW is a progressive aligner and should be restricted to small alignments.
 
@@ -27,7 +27,7 @@ MUSCLE is  is a progressive aligner that features rapid sequence distance estima
 
 Suitable for medium-large alignments up to 1000 sequences. 
 Not suitable for sequences with low homology N-terminal and C-terminal extensions. 
-Clustal Omega (replaces ClustalW in Geneious Prime 2020 onwards)
+Clustal Omega
 
 ## Clustal Omega 
 It is a fast, accurate aligner suitable for alignments of any size. It uses mBed guide trees and pair HMM-based algorithm which improves sensitivity and alignment quality.  A full description of the algorithms used by Clustal Omega is available in the Molecular Systems Biology paper Fast, scalable generation of high-quality protein multiple sequence alignments using Clustal Omega. Latest additions to Clustal Omega are described in Clustal Omega for making accurate alignments of many protein sciences.  See also the Clustal Omega website for further details.  

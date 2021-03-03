@@ -1,7 +1,5 @@
 # Pairwise and Multiple Alignment 
 
-Different multiple alignment algorithms are listed below. It is important to consider the size of the dataset and length of sequences when choosing which one to use.  Below is a brief overview of each algorithm. 
-
 ## [BLAST+](https://www.ncbi.nlm.nih.gov/books/NBK279690/)
 
 First needs to prepare a database, then align the query with database. 
@@ -24,6 +22,7 @@ faSplit sequence genome.fasta 16 genome
 
 ```
 
+Different multiple alignment algorithms are listed below. It is important to consider the size of the dataset and length of sequences when choosing which one to use.  Below is a brief overview of each algorithm. 
 
 ## [MAFFT](https://mafft.cbrc.jp/alignment/software/manual/manual.html) 
 

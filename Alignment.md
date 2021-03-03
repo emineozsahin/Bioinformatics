@@ -11,7 +11,7 @@ MAFFT is a progressive-iterative aligner that uses guide tree re-estimation for 
 + Suitable for sequences with long, low homology N-terminal or C-terminal extensions
 + Suitable for sequences with long internal gaps (use L-ins-i algorithm)
 
-* For long sequences, the algorithm is faster if sequences are closely related.  
++ \*The algorithm is faster if sequences are closely related for long sequences.  
 
 ## Efficient whole genome aligners for highly divergent sequences
 ### [LASTZ](http://www.bx.psu.edu/~rsharris/lastz/README.lastz-1.04.03.html#fmt_axt) 

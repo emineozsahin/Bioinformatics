@@ -87,7 +87,7 @@ ClustalW is a progressive aligner and should be restricted to small alignments.
 ```
 
 ## [MUSCLE](http://www.drive5.com/muscle/manual/index.html) 
-MUSCLE is a progressive aligner that features rapid sequence distance estimation using k-mer counting, progressive alignment using a profile function termed the log-expectation score, and refinement using tree-dependent restricted partitioning of the sequences[Drive & Valley, 2004](http://nar.oxfordjournals.org/content/32/5/1792.full.pdf+html). The defaults are optimized for best accuracy.  However, one can reduce the run-time on large alignments without too much reduction in accuracy by reducing the maximum number of iterations.  
+MUSCLE is a progressive aligner that features rapid sequence distance estimation using k-mer counting, progressive alignment using a profile function termed the log-expectation score, and refinement using tree-dependent restricted partitioning of the sequences [Drive & Valley, 2004](http://nar.oxfordjournals.org/content/32/5/1792.full.pdf+html). The defaults are optimized for best accuracy.  However, one can reduce the run-time on large alignments without too much reduction in accuracy by reducing the maximum number of iterations.  
 
 + Suitable for medium-large alignments up to 1000 sequences. 
 + Not suitable for sequences with low homology N-terminal and C-terminal extensions. 

@@ -1,5 +1,5 @@
 # Bioinformatics
-My notes on a variety of software..
+My notes...
 #### [Structural Analyses of genomes via NGS](https://github.com/emineozsahin/Bioinformatics/blob/main/WGS_structural_changes.md)
 #### [Snakemake](https://github.com/emineozsahin/Bioinformatics/blob/main/snakemake.md)
 #### [Alignment and snps extraction](https://github.com/emineozsahin/Bioinformatics/blob/main/Alignment.md)

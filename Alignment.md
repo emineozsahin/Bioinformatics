@@ -94,6 +94,8 @@ MUSCLE is a progressive aligner that features rapid sequence distance estimation
 
 ```
 ```
+## Visualize the alignment
+[Jalview](http://www.jalview.org/getdown/release/) is an efficient tool to see the alignment to make sure the alignment is good.   
 
 ## [snp-sites](https://github.com/sanger-pathogens/snp-sites) 
 To extract the variants from an alignment file.

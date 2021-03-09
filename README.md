@@ -3,7 +3,7 @@ My notes...
 #### [Structural Analyses of genomes via NGS](https://github.com/emineozsahin/Bioinformatics/blob/main/WGS_structural_changes.md)
 #### [Snakemake](https://github.com/emineozsahin/Bioinformatics/blob/main/snakemake.md)
 #### [Multiple/Pairwise Alignment and SNPs extraction](https://github.com/emineozsahin/Bioinformatics/blob/main/Alignment.md)
-#### [awk](https://github.com/emineozsahin/Bioinformatics/blob/main/awk.md) 
+#### [awk](https://github.com/emineozsahin/Bioinformatics/blob/main/awk.md): one line codes for fasta files 
 #### [snpEff](https://github.com/emineozsahin/Bioinformatics/blob/main/snpEff.md): Genetic variant annotation and functional effect prediction toolbox. 
 
 # Tools

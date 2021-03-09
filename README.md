@@ -2,9 +2,9 @@
 My notes...
 #### [Structural Analyses of genomes via NGS](https://github.com/emineozsahin/Bioinformatics/blob/main/WGS_structural_changes.md)
 #### [Snakemake](https://github.com/emineozsahin/Bioinformatics/blob/main/snakemake.md)
-#### [Alignment and snps extraction](https://github.com/emineozsahin/Bioinformatics/blob/main/Alignment.md)
+#### [Multiple/Pairwise Alignment and SNPs extraction](https://github.com/emineozsahin/Bioinformatics/blob/main/Alignment.md)
 #### [awk](https://github.com/emineozsahin/Bioinformatics/blob/main/awk.md) 
-#### [snpEff](: Genetic variant annotation and functional effect prediction toolbox. 
+#### [snpEff](https://github.com/emineozsahin/Bioinformatics/blob/main/snpEff.md): Genetic variant annotation and functional effect prediction toolbox. 
 
 # Tools
 #### [SOAPdenovo2](https://github.com/aquaskyline/SOAPdenovo2)

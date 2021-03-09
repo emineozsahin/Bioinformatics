@@ -68,6 +68,9 @@ snpEff S288C -no-downstream -no-upstream -no-intergenic  -csvStats sample.csv  s
 ```
 
 
+#### finding the gene names
+When I use snpEff gene names was the official names and I want to change them to thr symbols as it is easier to understand their functions. 
+
 
 
 

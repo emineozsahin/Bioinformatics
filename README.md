@@ -7,7 +7,7 @@ My notes...
 #### [snpEff](https://github.com/emineozsahin/Bioinformatics/blob/main/snpEff.md): Genetic variant annotation and functional effect prediction toolbox. 
 
 # Tools
-#### [SOAPdenovo2](https://github.com/aquaskyline/SOAPdenovo2)
+#### [SOAPdenovo2](https://github.com/aquaskyline/SOAPdenovo2): It is a very fast tool
 ####
 
 # Resources and tutorials 

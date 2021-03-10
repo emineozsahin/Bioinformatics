@@ -129,7 +129,7 @@ for i in EC1118_chr*_EC1118_*.vcf;do chr=`echo $i |sed 's/_/^V/g'|cut -f2`; outf
 Files are ready to annotate 
 
 ```
-for i in  EC1118_chr*_EC1118_*chr; do csv=`echo $i|sed 's/vcf/csv/g'`; outname=`echo $i|sed 's/_chr/_ann.vcf/g'`; snpEff S288C -c snpEffect.config -no-downstream -no-upstream -no-intergenic  -csvStats $csv $i > $outname;done
+for i in *chr; do csv=`echo $i|sed 's/chr/csv/g'`; outname=`echo $i|sed 's/_chr/_ann.vcf/g'`; echo $csv, echo $outname; snpEff S288C -c snpEffect.config -no-downstream -no-upstream -no-intergenic -csvStats $csv $i > $outname ; done
 
 ```
 

@@ -115,4 +115,23 @@ conda install snp-sites
 snp-sites -v -o gisaid_covid19.vcf gisaid_covid19.aln
 
 ```
+after snp-sites the vcf files cannot be annotated by snpEff unless chromosome names changed to the format from integer to the style chr[I-X]
+Change chromosome names of all vcf files found at the path
+
+```
+# for one file 
+head sample.vcf -n4 > sample_out.vcf; tail sample.vcf -n+5|awk '$0=gensub(/1/, "chrI", $1)' >> sample_out.vcf
+
+# for all the vcf found in the path 
+for i in EC1118_chr*_EC1118_*.vcf;do chr=`echo $i |sed 's/_/^V/g'|cut -f2`; outfile=`echo $i | sed 's/.vcf/_chr/g'`;echo $chr $outfile;head $i -n4 > $outfile;tail $i -n+5 | awk -v chr="$chr" '$0=gensub(/1/, chr, $1)' >> $outfile; done
+```
+
+
+
+
+
+
+
+
+
 

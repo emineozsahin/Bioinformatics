@@ -126,6 +126,12 @@ head sample.vcf -n4 > sample_out.vcf; tail sample.vcf -n+5|awk '$0=gensub(/1/, "
 for i in EC1118_chr*_EC1118_*.vcf;do chr=`echo $i |sed 's/_/^V/g'|cut -f2`; outfile=`echo $i | sed 's/.vcf/_chr/g'`;echo $chr $outfile;head $i -n4 > $outfile;tail $i -n+5 | awk -v chr="$chr" '$0=gensub(/1/, chr, $1)' >> $outfile; done
 ```
 
+Files are ready to annotate 
+
+```
+for i in  EC1118_chr*_EC1118_*.chr; do csv=`echo $i|sed 's/vcf/csv/g'`; outname=`echo $i|sed 's/.vcf/_ann.vcf/g'`; snpEff S288C -c snpEffect.config -no-downstream -no-upstream -no-intergenic  -csvStats $csv $i > $outname;done
+
+```
 
 
 

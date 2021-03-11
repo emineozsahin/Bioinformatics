@@ -19,7 +19,9 @@ My notes...
 # Programing languages
 ### [UNIX](https://tldp.org/LDP/Bash-Beginners-Guide/html/index.html)
 
-+ [AWK](https://klashxx.github.io/awk-power-for-your-cmd) power for your command line.
++ [GNU documentation tree](http://www.math.utah.edu/docs/info/)
++ [AWK](https://www.math.utah.edu/docs/info/gawk_3.html) Getting Started with awk, a complete guide 
++ [AWK](https://klashxx.github.io/awk-power-for-your-cmd) power for your command line. a short summary
 + [AWK GTF!](http://reasoniamhere.com/2013/09/16/awk-gtf-how-to-analyze-a-transcriptome-like-a-pro-part-1/) How to Analyze a Transcriptome Like a Pro... 
 
 ### [Python](https://www.w3schools.com/python/default.asp) 

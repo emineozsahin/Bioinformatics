@@ -7,7 +7,7 @@ First needs to prepare a database, then align the query with database.
 ```
 module load  StdEnv/2020  gcc/9.3.0 blast+/2.11.0
 
-makeblastdb -in sequences.fa -title S288C -dbtype nucl -out S288C_blast.fa
+makeblastdb -in sequences.fa -title S288C -dbtype nucl -num_alignments 10000 -out S288C_blast.fa
 
 blastn -db S288C_blast.fa -query sample.fa > sample_blast_S288C.ref
 
@@ -40,7 +40,7 @@ An example code:
 147 SARS-CoV-2 whole genome sequences (29000bp)can be aligned under a minute with MAFFT aligner.  
 
 ```
-module load nixpkgs/16.09  gcc/7.3.0 mafft/7.397
+module load StdEnv/2018 nixpkgs/16.09  gcc/7.3.0 mafft/7.397
 
 mafft --auto --nuc gisaid_hcov-19_2020_04_26_21.fasta > covid_gisaid.aln
 ```

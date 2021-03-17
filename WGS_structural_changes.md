@@ -3,6 +3,13 @@
 Before approaching any software, having a bed file for annotations in hand is helpful. 
 
 ### Prepare a bed file from gtf 
+conver gff to gtf 
+```
+module load  StdEnv/2018 nixpkgs/16.09  intel/2016.4 rsem/1.3.1
+
+ rsem-gff3-to-gtf  genes.gff   genes.gtf
+```
+
 get gtf file for *Saccharomyces cerevisiae* and unzip the file
 ```
 wget ftp://ftp.ensembl.org/pub/release-102/gtf/saccharomyces_cerevisiae/Saccharomyces_cerevisiae.R64-1-1.102.gtf.gz

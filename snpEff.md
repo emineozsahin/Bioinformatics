@@ -19,9 +19,8 @@ nano new_genome_info.txt
 S288C.genome : Saccharomyces cerevisae S288C2
 S288C.chrmt.codonTable: Yeast_Mitochondrial
 
-# Now add the genome info at the end of the config file which is a big file 
+# Now add the genome info at the end of the config file which is a huge file.
 cat new_genome_info.txt >> snpEffect.config
-
 ```
 
 2- Make a directory at the path you want for genome.gff and sequences.fa 

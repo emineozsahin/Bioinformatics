@@ -34,7 +34,7 @@ MAFFT is a progressive-iterative aligner that uses guide tree re-estimation for 
 + Suitable for sequences with long internal gaps (use L-ins-i algorithm)
 + Output is suitable for extracting the snps using the software snp-sites.
 
-\*The algorithm is faster if sequences are closely related for long sequences.  
+\*The algorithm is faster if sequences are closely related for long sequences. I used it to align the yeast chromosomes and it work well and fast. 
 
 An example code:
 147 SARS-CoV-2 whole genome sequences (29000bp)can be aligned under a minute with MAFFT aligner.  
@@ -58,6 +58,8 @@ lastz EC1118_chrII.fa  S288C_chrII.fa --format=maf > EC1118_vs_S288C_chrII.maf
 
 2. [Mauve](http://darlinglab.org/mauve/mauve.html) 
 
+gtf files can be aligned with mauve. I aligned the Adenovirus genomes. 
+
 ```
 
 ```
@@ -71,7 +73,7 @@ It is a fast, accurate aligner suitable for alignments of any size. It uses mBed
 + Not suitable for alignment of sequences with large internal indels
 + Output is suitable for extracting the snps using the software snp-sites
 
-Alignemnt of 147 SARS-CoV-2 whole genome sequences (29000bp) takes a very long time, so it is better to use queueing system.  
+Alignment of 147 SARS-CoV-2 whole genome sequences (29000bp) takes a very long time, so it is better to use queueing system.  
 
 ```
 module load nixpkgs/16.09  gcc/5.4.0 clustal-omega/1.2.4
@@ -115,7 +117,7 @@ conda install snp-sites
 snp-sites -v -o gisaid_covid19.vcf gisaid_covid19.aln
 
 ```
-after snp-sites the vcf files cannot be annotated by snpEff unless chromosome names changed to the format from integer to the style chr[I-X]
+after snp-sites the vcf files cannot be annotated by snpEff unless chromosome names format would be changed from integer to the style chr[I-X].
 Change chromosome names of all vcf files found at the path
 
 ```

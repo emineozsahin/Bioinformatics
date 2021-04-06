@@ -66,10 +66,18 @@ Now you can run the software, but this time again there is no need for -c flag.
 snpEff S288C -no-downstream -no-upstream -no-intergenic  -csvStats sample.csv  sample.vcf > sample.ann.vcf
 ```
 
+#### finding the gene names from gene IDs
 
-#### finding the gene names
-When I use snpEff gene names was the official names and I want to change them to thr symbols as it is easier to understand their functions. 
+```
+variants=read.csv("EC1118ref_EC1118ann.csv")
+genes=read.table("S288C.genes.txt")
 
+for (i in 1:length(variants$gene_id)){index<-which(as.character(genes$V1) == as.character(variants$gene_id[i])) 
+if (length(index) >0) {variants$gene_name[i]=as.character(genes$V2[index])} else {variants$gene_name[i]=""}
+}
+
+write.csv(variants, "EC1118ref_EC1118ann_genenames.csv")
+```
 
 
 

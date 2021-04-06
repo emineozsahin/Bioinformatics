@@ -49,7 +49,7 @@ This generates a file called snpEffectPredictor.bin
 Now snpeff can be run to annotate the vcf file. Again -c flag is important and the snpEffect.config file is present on the path where I run the following code. 
 
 ```
-snpEff S288C -c snpEffect.config -no-downstream -no-upstream -no-intergenic  -csvStats sample.csv  sample.vcf.gz > sample.ann.vcf.gz
+snpEff S288C -c snpEffect.config -no-downstream -no-upstream -no-intergenic  -csvStats sample.csv  sample.vcf > sample.ann.vcf
 ```
 
 #### Second Location: The location where snpEff installed. 
@@ -63,7 +63,7 @@ There is no need to change the data.dir path in the config file. But, add the ge
 Now you can run the software, but this time again there is no need for -c flag.
 
 ```
-snpEff S288C -no-downstream -no-upstream -no-intergenic  -csvStats sample.csv  sample.vcf.gz > sample.ann.vcf.gz
+snpEff S288C -no-downstream -no-upstream -no-intergenic  -csvStats sample.csv  sample.vcf > sample.ann.vcf
 ```
 
 

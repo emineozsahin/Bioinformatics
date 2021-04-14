@@ -3,7 +3,15 @@
 Before approaching any software, having a bed file for annotations in hand is helpful. 
 
 ### Prepare a bed file from gtf 
-conver gff to gtf 
+Fastest, easiest way with bedops
+```
+module load StdEnv/2020 bedops/2.4.39
+
+gff2bed < genes.gff > sorted-genes.gff.bed
+
+```
+
+convert gff to gtf 
 ```
 module load  StdEnv/2018 nixpkgs/16.09  intel/2016.4 rsem/1.3.1
 

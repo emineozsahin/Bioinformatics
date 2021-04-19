@@ -11,6 +11,8 @@ gff2bed < genes.gff > sorted-genes.gff.bed
 
 ```
 
+Another way..
+
 convert gff to gtf 
 ```
 module load  StdEnv/2018 nixpkgs/16.09  intel/2016.4 rsem/1.3.1

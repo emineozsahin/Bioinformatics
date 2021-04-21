@@ -304,6 +304,7 @@ ggplot(data, aes(Contig, value, group=variable, colour=variable)) + geom_line() 
 snp.txt 
 
 ```
+library(stringr)
 data=read.table("Suoma_Hiiva.noduplicate.sorted_SNP.txt", sep="\t", header=TRUE)
 data=cbind(data, str_split_fixed(data$Counts, "\\|", 2))
 

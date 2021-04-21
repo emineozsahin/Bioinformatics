@@ -297,24 +297,11 @@ data<- data[,-2]
 data <- melt(data, id.vars="Contig")
 data$Contig=factor(data$Contig, levels=c("chrI", "chrII", "chrIII", "chrIV", "chrV", "chrVI", "chrVII", "chrVIII", "chrIX", "chrX", "chrXI", "chrXII", "chrXIII", "chrXIV", "chrXV", "chrXVI", "chrmt"), ordered = TRUE)
 
+data <- data[-which(data$variable == "logLike_M1"),]
+
 ggplot(data, aes(Contig, value, group=variable, colour=variable)) + geom_line() + geom_point(size = 1) +   scale_colour_brewer(palette = "Set1") + ggtitle(names(data))
 
 ```
-
-snp.txt 
-
-```
-library(stringr)
-data=read.table("Suoma_Hiiva.noduplicate.sorted_SNP.txt", sep="\t", header=TRUE)
-data=cbind(data, str_split_fixed(data$Counts, "\\|", 2))
-
-data$AR = 1:length(unique(data$loc))
-
-for (i in 1:length(unique(data$AR))){
-  mx=max(c(as.numeric(as.character(data$`1`[i])), as.numeric(as.character(data$`2`[i]))))
-  mn=min(c(as.numeric(as.character(data$`1`[i])), as.numeric(as.character(data$`2`[i]))))
-  data$AR[i] = mx / mn
-  }
 
 
 

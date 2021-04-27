@@ -14,3 +14,7 @@ Following code is to change the chromosome names of the vcf files found in the p
 for i in EC1118_chr*_EC1118_*.vcf;do chr=`echo $i |sed 's/_/  /g'|cut -f2`; outfile=`echo $i | sed 's/.vcf/_chr/g'`;echo $chr $outfile;head $i -n4 > $outfile;tail $i -n+5 | awk -v chr="$chr" '$0=gensub(/1/, chr, $1)' >> $outfile; done
 ```
 
+Count the each scaffold in a fasta file
+```
+awk '/^>/ {if (seqlen){print seqlen}; printf $0"\t";seqlen=0;next; } { seqlen += length($0)}END{print seqlen}' sequences.fa
+```

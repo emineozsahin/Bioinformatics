@@ -82,4 +82,3 @@ write.csv(variants, "EC1118ref_EC1118ann_genenames.csv")
 
 
 
-

@@ -19,6 +19,10 @@ nano new_genome_info.txt
 S288C.genome : Saccharomyces cerevisae S288C2
 S288C.chrmt.codonTable: Yeast_Mitochondrial
 
+# CEN.PK genome
+CEN.PK.genome : Saccharomyces cerevisae CEN.PK
+CEN.PK.chrmt.codonTable: Yeast_Mitochondrial 
+
 # Now add the genome info at the end of the config file which is a huge file.
 cat new_genome_info.txt >> snpEffect.config
 ```
@@ -42,14 +46,19 @@ data.dir = /home/emineozsahin/
 
 ```
 snpEff build -c snpEffect.config -gff3 -v S288C
+
+java -jar ~/projects/def-gvdmlab/Software/snpEff/snpEff.jar  build -c snpEffect.config -gff3 -v CEN.PK
 ```
 
-This generates a file called snpEffectPredictor.bin
+This generates a file called snpEffectPredictor.bin in the data.dir which is ~/projects/def-gvdmlab/emine85 on graham
 
 Now snpeff can be run to annotate the vcf file. Again -c flag is important and the snpEffect.config file is present on the path where I run the following code. 
 
 ```
 snpEff S288C -c snpEffect.config -no-downstream -no-upstream -no-intergenic  -csvStats sample.csv  sample.vcf > sample.ann.vcf
+
+java -jar ~/projects/def-gvdmlab/Software/snpEff/snpEff.jar CEN.PK -c snpEffect.config -no-downstream -no-upstream -no-intergenic  -csvStats Kolsch_CEN_PK_freebayes_snpeffect.csv  Kolsch_CEN_PK_freebayes.vcf  > Kolsch_CEN_PK_SnpEff_ann_freebayes.vcf
+
 ```
 
 #### Second Location: The location where snpEff installed. 
@@ -79,6 +88,10 @@ if (length(index) >0) {variants$gene_name[i]=as.character(genes$V2[index])} else
 write.csv(variants, "EC1118ref_EC1118ann_genenames.csv")
 ```
 
+or you may use following way
 
+#### 
+
+grep "YGR289C"  sample.ann.vcf  |awk '{if(match($8,/ANN=([^;]+)/,m) split(m[0],a,"|")) print($1, $2, $4, $5, a[2], a[4],  a[10], a[11])}'|sed 's/ /  /g' > AGT1_CEN_PK_variants.txt
 
 

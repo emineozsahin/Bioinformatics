@@ -75,6 +75,13 @@ Now you can run the software, but this time again there is no need for -c flag.
 snpEff S288C -no-downstream -no-upstream -no-intergenic  -csvStats sample.csv  sample.vcf > sample.ann.vcf
 ```
 
+#### report the variants
+
+```
+grep "YGR289C"  sample.ann.vcf  |awk '{if(match($8,/ANN=([^;]+)/,m) split(m[0],a,"|")) print($1, $2, $4, $5, a[2], a[4],  a[10], a[11])}'|sed 's/ /  /g' > AGT1_CEN_PK_variants.txt
+
+```
+
 #### finding the gene names from gene IDs
 
 ```
@@ -88,10 +95,24 @@ if (length(index) >0) {variants$gene_name[i]=as.character(genes$V2[index])} else
 write.csv(variants, "EC1118ref_EC1118ann_genenames.csv")
 ```
 
-or you may use following way
+# Bcftools to annotate
 
-#### 
+prepare a bed file from gff, sort, compress and index it
 
-grep "YGR289C"  sample.ann.vcf  |awk '{if(match($8,/ANN=([^;]+)/,m) split(m[0],a,"|")) print($1, $2, $4, $5, a[2], a[4],  a[10], a[11])}'|sed 's/ /  /g' > AGT1_CEN_PK_variants.txt
+```
+awk '{if(match($9,/gene=([^;]+)/,m)) print($1, $4, $5, substr(m[0],6), $7)}' CEN.PK113-7D_AEHG00000000.gff|sed 's/ / /g' > CEN_PK.bed
 
+sort -k 1,1 -k2,2n  CEN_PK.bed > CEN_PK_sorted.bed
+
+bgzip -c CEN_PK_sorted.bed > CEN_PK_sorted.bed.gz
+
+tabix CEN_PK_sorted.bed.gz
+
+```
+use the bed file to annotate the regions 
+
+```
+bcftools annotate -a CEN_PK_sorted.bed.gz -c CHROM,FROM,TO,GENE -h <(echo '##INFO=<ID=GENE,Number=1,Type=String,Description="Gene name">')  Kolsch_CEN_PK_freebayes.vcf  >  Kolsch_CEN_PK_freebayes_ann.vcf 
+
+```
 

@@ -79,6 +79,18 @@ snpEff S288C -no-downstream -no-upstream -no-intergenic  -csvStats sample.csv  s
 
 ```
 grep "YGR289C"  sample.ann.vcf  |awk -v FS=' ' -v OFS='\t' '{if(match($8,/ANN=([^;]+)/,m) split(m[0],a,"|")) print($1, $2, $4, $5, a[2], a[4],  a[10], a[11])}' > AGT1_CEN_PK_variants.txt
+```
+
+I first annotate the variants with SnpEFF (assigns only geneIDs when gff used) and then bcftools to assign the gene names. Then report the variants for single sample 
+
+```
+java -jar ~/projects/def-gvdmlab/Software/snpEff/snpEff.jar CEN.PK -c snpEffect.config -no-downstream -no-upstream -no-intergenic  -csvStats Kolsch_CEN_PK_freebayes_snpeffect.csv  Kolsch_CEN_PK_freebayes.vcf  > 
+Kolsch_CEN_PK_SnpEff_annfreebayes.vcf 
+
+bcftools annotate -a CEN_PK_sorted.bed.gz -c CHROM,FROM,TO,GENE -h <(echo '##INFO=<ID=GENE,Number=1,Type=String,Description="Gene name">')  Kolsch_CEN_PK_SnpEff_annfreebayes.vcf  >  Kolsch_CEN_PK_SnpEff_ann_free
+bayes_BCFANN.vcf
+
+grep "MAL11"  Kolsch_CEN_PK_SnpEff_ann_freebayes_BCFANN.vcf|sed 's/;/    /g'|awk -v FS=' ' -v OFS='\t' '{if(match($49,/ANN=([^;]+)/,m) AND match($50,/GENE=([^;]+)/,n) split(m[0],a,"|")) print(n[1], a[4], $1, $2, $4, $5, a[2],  a[10], a[11])}'|head
 
 ```
 

@@ -78,7 +78,7 @@ snpEff S288C -no-downstream -no-upstream -no-intergenic  -csvStats sample.csv  s
 #### report the variants
 
 ```
-grep "YGR289C"  sample.ann.vcf  |awk '{if(match($8,/ANN=([^;]+)/,m) split(m[0],a,"|")) print($1, $2, $4, $5, a[2], a[4],  a[10], a[11])}'|sed 's/ /  /g' > AGT1_CEN_PK_variants.txt
+grep "YGR289C"  sample.ann.vcf  |awk -v FS=' ' -v OFS='\t' '{if(match($8,/ANN=([^;]+)/,m) split(m[0],a,"|")) print($1, $2, $4, $5, a[2], a[4],  a[10], a[11])}' > AGT1_CEN_PK_variants.txt
 
 ```
 

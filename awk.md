@@ -18,3 +18,8 @@ Count the each scaffold in a fasta file
 ```
 awk '/^>/ {if (seqlen){print seqlen}; printf $0"\t";seqlen=0;next; } { seqlen += length($0)}END{print seqlen}' sequences.fa
 ```
+
+Split the chromosomes
+```
+awk -v r=Anchorman_Ale  -F "|" '/^>/ {close(F); ID=$1; gsub("^>", "", ID); F=r"_"ID".fa"; gsub(" ", "", F)} {print >> F}' Anchorman_Ale_purged.fa
+```

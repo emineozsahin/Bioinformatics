@@ -1,5 +1,5 @@
 # SNAKEMAKE 
-I took these notes while I was working on a snakemake pipeline which runs on AWS clusters for a variant analyses. 
+I took these notes while working on a snakemake pipeline that runs on AWS clusters for variant analyses.
 
 ## 1. Simple snakemake tutorial
 [Slides](https://slides.com/johanneskoester/snakemake-tutorial)

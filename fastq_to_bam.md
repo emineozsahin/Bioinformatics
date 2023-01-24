@@ -1,5 +1,0 @@
-# Quality check
-
-# Trimming
-
-# Alignment

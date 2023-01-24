@@ -1,4 +1,5 @@
 # SNAKEMAKE 
+I took these notes while I was working on a snakemake pipeline which runs on AWS clusters for a variant analyses. 
 
 ## 1. Simple snakemake tutorial
 [Slides](https://slides.com/johanneskoester/snakemake-tutorial)
